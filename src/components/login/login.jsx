@@ -17,13 +17,17 @@ const Login = (props) => {
     props.onGithub();
   };
 
+  const onSginInGoogle = () => {
+    props.onGoogle();
+  };
+
   return (
     <div>
       <div>
         Record <br /> Your day <br /> With <br /> Emotion
       </div>
       <h1>Sign in</h1>
-      <span>
+      <span onClick={onSginInGoogle}>
         <i className="fa-brands fa-google"></i>
       </span>
       <span onClick={onSginInGit}>
