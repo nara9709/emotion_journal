@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
 import '@fortawesome/fontawesome-free/js/all.js';
+import AuthService from './service/auth';
+
+const authService = new AuthService();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App authService={authService} />
   </React.StrictMode>,
   document.getElementById('root')
 );
