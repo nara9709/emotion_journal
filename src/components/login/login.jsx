@@ -88,7 +88,7 @@ const Login = ({ authService }) => {
             placeholder="Password"
           />
           <button className={styles.signinBtn} type="submit" onClick={onSignIn}>
-            Sign In
+            Log In
           </button>
         </form>
       </section>
