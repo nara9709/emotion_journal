@@ -8,7 +8,7 @@ const Login = ({ authService }) => {
   const passwordRef = useRef(null);
 
   // Call sign up function
-  const onSignIn = (e) => {
+  const onLgnIn = (e) => {
     e.preventDefault();
     authService
       .loginWithEmail(emailRef.current.value, passwordRef.current.value)
@@ -25,7 +25,7 @@ const Login = ({ authService }) => {
       });
   };
 
-  const onSginInWithGoogle = () => {
+  const onLogInWithGoogle = () => {
     authService
       .loginWithAuth('Google')
       .then((result) => {
@@ -41,7 +41,7 @@ const Login = ({ authService }) => {
       });
   };
 
-  const onSginInWithGithub = () => {
+  const onLogInWithGithub = () => {
     authService
       .loginWithAuth('Github')
       .then((result) => {
@@ -67,10 +67,10 @@ const Login = ({ authService }) => {
       <section className={styles.sectionRight}>
         <h1 className={styles.signin}>Sign in</h1>
         <div className={styles.iconContainer}>
-          <span className={styles.icon} onClick={onSginInWithGoogle}>
+          <span className={styles.icon} onClick={onLogInWithGoogle}>
             <i className="fa-brands fa-google"></i>
           </span>
-          <span className={styles.icon} onClick={onSginInWithGithub}>
+          <span className={styles.icon} onClick={onLogInWithGithub}>
             <i className="fa-brands fa-github"></i>
           </span>
         </div>
@@ -87,7 +87,7 @@ const Login = ({ authService }) => {
             type="password"
             placeholder="Password"
           />
-          <button className={styles.signinBtn} type="submit" onClick={onSignIn}>
+          <button className={styles.signinBtn} type="submit" onClick={onLgnIn}>
             Log In
           </button>
         </form>
