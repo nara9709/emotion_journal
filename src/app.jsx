@@ -3,26 +3,28 @@ import './app.css';
 import Login from './components/login/login';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import AuthService from './service/auth';
-const authService = new AuthService();
+import Header from './components/header/header';
+import JournalList from './components/journalList/journalList';
+import { useState } from 'react';
 
 function App({ authService }) {
-  // Sign In function
-  const signInWithEmail = (email, password) => {};
-
-  const SignInWithProvider = (provider) => {};
+  const [isLogIn, setIsLogIn] = useState(false);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
-          path="/login"
-          exact
+          path="/"
+          element={<Login authService={authService} setIsLogIn={setIsLogIn} />}
+        ></Route>
+        <Route
+          path="/app"
           element={
-            <Login
-              authService={authService}
-              onSignInWithEmail={signInWithEmail}
-              onSignInWithProvider={SignInWithProvider}
-            />
+            <>
+              {' '}
+              <Header />
+              <JournalList />
+            </>
           }
         ></Route>
       </Routes>

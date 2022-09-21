@@ -1,11 +1,14 @@
 import styles from './login.module.css';
 
 import { React, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ authService }) => {
+const Login = ({ authService, setIsLogIn }) => {
   // Dispatch useRef to email and password to get values
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const navigate = useNavigate();
 
   // Call sign up function
   const onLgnIn = (e) => {
@@ -14,8 +17,11 @@ const Login = ({ authService }) => {
       .loginWithEmail(emailRef.current.value, passwordRef.current.value)
       .then((userCredential) => {
         // Signed in
+        setIsLogIn(true);
+        navigate('/app');
         const user = userCredential.user;
         console.log(user.uid);
+
         // ...
       })
       .catch((error) => {

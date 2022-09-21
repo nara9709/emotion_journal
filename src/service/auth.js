@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   GithubAuthProvider,
+  signOut,
 } from 'firebase/auth';
 import firebaseApp from './firebase';
 
@@ -24,6 +25,10 @@ class AuthService {
 
   loginWithEmail(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  logOut() {
+    return signOut(auth);
   }
 }
 
