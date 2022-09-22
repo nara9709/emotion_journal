@@ -36,6 +36,8 @@ const Login = ({ authService, setIsLogIn }) => {
       .loginWithAuth('Google')
       .then((result) => {
         // The signed-in user info.
+        setIsLogIn(true);
+        navigate('/app');
         console.log(result);
         // ...
       })
@@ -52,6 +54,8 @@ const Login = ({ authService, setIsLogIn }) => {
       .loginWithAuth('Github')
       .then((result) => {
         // The signed-in user info.
+        setIsLogIn(true);
+        navigate('/app');
         console.log(result);
         // ...
       })
