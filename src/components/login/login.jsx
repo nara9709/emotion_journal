@@ -2,6 +2,7 @@ import styles from './login.module.css';
 
 import { React, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Login = ({ authService, setIsLogIn }) => {
   // Dispatch useRef to email and password to get values
@@ -10,20 +11,28 @@ const Login = ({ authService, setIsLogIn }) => {
 
   const navigate = useNavigate();
 
+  // If user is signed in already, go to main page and pass user uid
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && goToJournalList(user.uid);
+    });
+  });
+
+  //Go to main app page If user signed in
+  const goToJournalList = (userUid) => {
+    setIsLogIn(true);
+    navigate('/journal-list', { state: { userId: userUid } });
+  };
+
   // Call sign up function
   const onLgnIn = (e) => {
     e.preventDefault();
     authService
       .loginWithEmail(emailRef.current.value, passwordRef.current.value)
-      .then((userCredential) => {
-        // Signed in
-        setIsLogIn(true);
-        navigate('/app');
-        const user = userCredential.user;
-        console.log(user.uid);
-
-        // ...
-      })
+      .then((data) =>
+        // The signed-in user info.
+        goToJournalList(data.user.uid)
+      )
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
@@ -34,13 +43,10 @@ const Login = ({ authService, setIsLogIn }) => {
   const onLogInWithGoogle = () => {
     authService
       .loginWithAuth('Google')
-      .then((result) => {
+      .then((data) =>
         // The signed-in user info.
-        setIsLogIn(true);
-        navigate('/app');
-        console.log(result);
-        // ...
-      })
+        goToJournalList(data.user.uid)
+      )
       .catch((error) => {
         // Handle Errors here.
         const errorMessage = error.message;
@@ -52,13 +58,10 @@ const Login = ({ authService, setIsLogIn }) => {
   const onLogInWithGithub = () => {
     authService
       .loginWithAuth('Github')
-      .then((result) => {
+      .then((data) =>
         // The signed-in user info.
-        setIsLogIn(true);
-        navigate('/app');
-        console.log(result);
-        // ...
-      })
+        goToJournalList(data.user.uid)
+      )
       .catch((error) => {
         // Handle Errors here.
         const errorMessage = error.message;

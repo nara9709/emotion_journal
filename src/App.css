@@ -1,3 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: auto;
+}
+
+#root {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5em;
+}
+
 .App {
   text-align: center;
 }

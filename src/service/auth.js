@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import firebaseApp from './firebase';
 
@@ -25,6 +26,12 @@ class AuthService {
 
   loginWithEmail(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  onAuthChange(onUserChanged) {
+    onAuthStateChanged(auth, (user) => {
+      onUserChanged(user);
+    });
   }
 
   logOut() {

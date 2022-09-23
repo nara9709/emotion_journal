@@ -1,0 +1,32 @@
+@value journal-main-green,journal-dark-green from '../../common/colors.css';
+
+.headerContainer {
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: journal-main-green;
+  display: flex;
+  justify-content: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+}
+
+.title {
+  font-size: 1.7em;
+}
+
+.btnLogout {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 40px;
+  color: white;
+  position: relative;
+  right: -300px;
+  transition: color 150ms ease-in-out;
+}
+
+.btnLogout:hover {
+  cursor: pointer;
+  color: journal-dark-green;
+}
