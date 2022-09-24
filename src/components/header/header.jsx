@@ -8,11 +8,12 @@ const Header = ({ authService }) => {
   const onLogout = () => {
     authService.logOut().then(navigate('/'));
   };
+
   return (
     <section className={styles.headerContainer}>
       <h1 className={styles.title}>How was your day?</h1>
       <button onClick={onLogout} className={styles.btnLogout}>
-        <i class="fa-solid fa-right-from-bracket"></i>
+        <i className="fa-solid fa-right-from-bracket"></i>
       </button>
     </section>
   );

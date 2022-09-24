@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 function App({ authService }) {
   const [isLogIn, setIsLogIn] = useState(false);
+  const [isOnEdit, setIsOnEdit] = useState(false);
 
   return (
     <BrowserRouter>
@@ -20,18 +21,9 @@ function App({ authService }) {
           path="/journal-list"
           element={
             <>
-              {isLogIn === true ? (
-                <>
-                  {' '}
-                  <Header authService={authService} />
-                  <JournalList />
-                </>
-              ) : (
-                <Login
-                  authService={authService}
-                  setIsLogIn={setIsLogIn}
-                ></Login>
-              )}
+              {' '}
+              <Header authService={authService} />
+              <JournalList isLogIn={isLogIn} />
             </>
           }
         ></Route>
