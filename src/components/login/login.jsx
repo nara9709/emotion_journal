@@ -15,12 +15,14 @@ const Login = ({ authService, setIsLogIn }) => {
   useEffect(() => {
     authService.onAuthChange((user) => {
       user && goToJournalList(user.uid);
+      console.log(setIsLogIn);
     });
   });
 
   //Go to main app page If user signed in
   const goToJournalList = (userUid) => {
     setIsLogIn(true);
+    console.log(setIsLogIn);
     navigate('/journal-list', { state: { userId: userUid } });
   };
 
