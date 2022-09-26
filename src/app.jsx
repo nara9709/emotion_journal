@@ -21,30 +21,18 @@ function App({ authService }) {
         <Route
           path="/journal-list"
           element={
-            onEditor ? (
-              // If User clicks Editor button, show editor page
-              <>
-                {' '}
-                <Header authService={authService} toggleEditor={toggleEditor} />
-                <div className="journalContainer">
-                  <JournalList
-                    toggleEditor={toggleEditor}
-                    display={onEditor ? 'half' : 'full'}
-                  />
-                  <JournalEditor />
-                </div>
-              </>
-            ) : (
-              // Defalut randing page
-              <>
-                {' '}
-                <Header authService={authService} toggleEditor={toggleEditor} />
+            // If User clicks Editor button, show editor page
+            <>
+              {' '}
+              <Header authService={authService} toggleEditor={toggleEditor} />
+              <div className="journalContainer">
                 <JournalList
-                  display={onEditor ? 'half' : 'full'}
                   toggleEditor={toggleEditor}
+                  display={onEditor ? 'half' : 'full'}
                 />
-              </>
-            )
+                <JournalEditor display={onEditor ? 'open' : 'close'} />
+              </div>
+            </>
           }
         ></Route>
       </Routes>

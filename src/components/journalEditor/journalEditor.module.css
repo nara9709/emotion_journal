@@ -1,5 +1,22 @@
-.editorContainer {
+.editorContainerOpen {
   width: 50%;
   background-color: antiquewhite;
   border-bottom-right-radius: 10px;
+}
+
+.editorContainerClose {
+  animation-name: widthAnimation;
+  animation-duration: 2s;
+  background-color: antiquewhite;
+  border-bottom-right-radius: 10px;
+  display: none;
+}
+
+@keyframes widthAnimation {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
 }
