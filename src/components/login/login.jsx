@@ -20,7 +20,6 @@ const Login = ({ authService, setIsLogIn }) => {
 
   //Go to main app page If user signed in
   const goToJournalList = (userUid) => {
-    setIsLogIn(true);
     navigate('/journal-list', { state: { userId: userUid } });
   };
 

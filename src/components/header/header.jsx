@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './header.module.css';
 import { useNavigate } from 'react-router-dom';
 
-const Header = ({ authService }) => {
+const Header = ({ authService, toggleEditor }) => {
   const navigate = useNavigate();
 
   const onLogout = () => {
+    toggleEditor();
     authService.logOut().then(navigate('/'));
   };
 

@@ -21,8 +21,9 @@
   outline: none;
   font-size: 40px;
   color: white;
-  position: relative;
-  right: -300px;
+  position: absolute;
+  right: 250px;
+  top: 100px;
   transition: color 150ms ease-in-out;
 }
 

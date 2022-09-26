@@ -5,26 +5,46 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header';
 import JournalList from './components/journalList/journalList';
 import { useState } from 'react';
+import JournalEditor from './components/journalEditor/journalEditor';
 
 function App({ authService }) {
-  const [isLogIn, setIsLogIn] = useState(false);
-  const [isOnEdit, setIsOnEdit] = useState(false);
+  const [onEditor, setOnEditor] = useState(false);
+
+  const toggleEditor = () => {
+    onEditor ? setOnEditor(false) : setOnEditor(true);
+  };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={<Login authService={authService} setIsLogIn={setIsLogIn} />}
-        ></Route>
+        <Route path="/" element={<Login authService={authService} />}></Route>
         <Route
           path="/journal-list"
           element={
-            <>
-              {' '}
-              <Header authService={authService} />
-              <JournalList isLogIn={isLogIn} />
-            </>
+            onEditor ? (
+              // If User clicks Editor button, show editor page
+              <>
+                {' '}
+                <Header authService={authService} toggleEditor={toggleEditor} />
+                <div className="journalContainer">
+                  <JournalList
+                    toggleEditor={toggleEditor}
+                    display={onEditor ? 'half' : 'full'}
+                  />
+                  <JournalEditor />
+                </div>
+              </>
+            ) : (
+              // Defalut randing page
+              <>
+                {' '}
+                <Header authService={authService} toggleEditor={toggleEditor} />
+                <JournalList
+                  display={onEditor ? 'half' : 'full'}
+                  toggleEditor={toggleEditor}
+                />
+              </>
+            )
           }
         ></Route>
       </Routes>

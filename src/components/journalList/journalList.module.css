@@ -1,0 +1,15 @@
+@value journal-main-height from '../../common/size.css';
+
+.listContainerFull {
+  width: 100%;
+  height: journal-main-height;
+  background-color: aqua;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.listContainerHalf {
+  width: 50%;
+  background-color: aqua;
+  border-bottom-left-radius: 10px;
+}
