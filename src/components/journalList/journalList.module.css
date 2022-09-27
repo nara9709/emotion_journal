@@ -1,15 +1,16 @@
 @value journal-main-height from '../../common/size.css';
+@value journal-grey from '../../common/colors.css';
 
 .listContainerFull {
   width: 100%;
   height: journal-main-height;
-  background-color: aqua;
+  background-color: white;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
 .listContainerHalf {
-  background-color: aqua;
+  background-color: white;
   border-bottom-left-radius: 10px;
   animation-name: widthAnimationHalf;
   animation-duration: 2s;
@@ -23,4 +24,25 @@
   100% {
     width: 50%;
   }
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.journalCard {
+  width: 10em;
+  height: 12em;
+  list-style: none;
+  border-radius: 10px;
+  box-shadow: 4px 9px 18px 0px rgba(0, 0, 0, 0.2);
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.journalCard:hover {
+  position: relative;
+  top: -15px;
+  cursor: pointer;
 }

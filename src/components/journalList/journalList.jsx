@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import Journal from '../journal/journal';
 import styles from './journalList.module.css';
 
-const JournalList = ({ toggleEditor, display, toggleView }) => {
+const JournalList = ({ toggleEditor, display, toggleView, journals }) => {
   const state = useLocation().state;
   const userId = state.userId;
 
@@ -19,9 +20,16 @@ const JournalList = ({ toggleEditor, display, toggleView }) => {
 
   return (
     <section className={displayType}>
-      <h1> JoirnalList page</h1>
-      <button onClick={openEditor}>Edit</button>
-      <button onClick={openView}>View</button>
+      <ul className={styles.cardContainer}>
+        {journals.map((journal) => (
+          <li className={styles.journalCard}>
+            {' '}
+            <Journal journal={journal} key={journal.key} />
+          </li>
+        ))}
+        <button onClick={openEditor}>Edit</button>
+        <button onClick={openView}>View</button>
+      </ul>
     </section>
   );
 };

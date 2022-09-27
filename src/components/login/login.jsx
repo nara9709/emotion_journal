@@ -4,11 +4,10 @@ import { React, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const Login = ({ authService, setIsLogIn }) => {
+const Login = ({ authService, setOnEditor, setOnView }) => {
   // Dispatch useRef to email and password to get values
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-
   const navigate = useNavigate();
 
   // If user is signed in already, go to main page and pass user uid
@@ -16,6 +15,9 @@ const Login = ({ authService, setIsLogIn }) => {
     authService.onAuthChange((user) => {
       user && goToJournalList(user.uid);
     });
+    // And reset page display states
+    setOnEditor(false);
+    setOnView(false);
   });
 
   //Go to main app page If user signed in
