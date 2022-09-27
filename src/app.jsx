@@ -6,12 +6,18 @@ import Header from './components/header/header';
 import JournalList from './components/journalList/journalList';
 import { useState } from 'react';
 import JournalEditor from './components/journalEditor/journalEditor';
+import JournalView from './components/journalView/journalView';
 
 function App({ authService }) {
   const [onEditor, setOnEditor] = useState(false);
+  const [onView, setOnView] = useState(false);
 
   const toggleEditor = () => {
     onEditor ? setOnEditor(false) : setOnEditor(true);
+  };
+
+  const toggleView = () => {
+    onView ? setOnView(false) : setOnView(true);
   };
 
   return (
@@ -28,9 +34,11 @@ function App({ authService }) {
               <div className="journalContainer">
                 <JournalList
                   toggleEditor={toggleEditor}
-                  display={onEditor ? 'half' : 'full'}
+                  toggleView={toggleView}
+                  display={onEditor || onView ? 'half' : 'full'}
                 />
                 <JournalEditor display={onEditor ? 'open' : 'close'} />
+                <JournalView display={onView ? 'open' : 'close'} />
               </div>
             </>
           }
