@@ -13,6 +13,8 @@ function App({ authService }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
 
+  let journalShown = null;
+
   const [journals, setJournal] = useState([
     {
       key: 1,
@@ -24,7 +26,7 @@ function App({ authService }) {
     },
     {
       key: 2,
-      date: '20220920',
+      date: '20221020',
       title: `I'm sad..`,
       content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
       image: '/image/sample_image.jpg',
@@ -32,7 +34,7 @@ function App({ authService }) {
     },
     {
       key: 3,
-      date: '20220919',
+      date: '20221119',
       title: `I don't know what to do`,
       content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
       image: '/image/sample_image.jpg',
@@ -46,6 +48,14 @@ function App({ authService }) {
 
   const toggleView = () => {
     onView ? setOnView(false) : setOnView(true);
+  };
+
+  // If user clicks journal card, call this onOpneJournal and assign key to a key variable to show the journal
+  const onOpenJournal = (key) => {
+    const journal = journals.filter((journal) => journal.key === key);
+
+    journalShown = journal;
+    console.log(journalShown);
   };
 
   return (
@@ -71,12 +81,17 @@ function App({ authService }) {
               <div className="journalContainer">
                 <JournalList
                   journals={journals && journals}
+                  key={journals.key}
                   toggleEditor={toggleEditor}
                   toggleView={toggleView}
                   display={onEditor || onView ? 'half' : 'full'}
+                  onOpenJournal={onOpenJournal}
                 />
                 <JournalEditor display={onEditor ? 'open' : 'close'} />
-                <JournalView display={onView ? 'open' : 'close'} />
+                <JournalView
+                  display={onView ? 'open' : 'close'}
+                  journalShown={journalShown}
+                />
               </div>
             </>
           }

@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './journalView.module.css';
 
-const JournalView = ({ display }) => {
+const JournalView = ({ display, journalShown, journals }) => {
   const displayType = display === 'open' ? styles.viewOpen : styles.viewClose;
+
+  console.log(journalShown);
+
   return (
     <section className={displayType}>
-      <h1>Journal View</h1>
+      <h1>{journalShown ? journalShown.title : 'No title'}</h1>
     </section>
   );
 };

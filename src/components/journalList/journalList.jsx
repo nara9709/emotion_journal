@@ -3,7 +3,13 @@ import { useLocation } from 'react-router-dom';
 import Journal from '../journal/journal';
 import styles from './journalList.module.css';
 
-const JournalList = ({ toggleEditor, display, toggleView, journals }) => {
+const JournalList = ({
+  onOpenJournal,
+  toggleEditor,
+  display,
+  toggleView,
+  journals,
+}) => {
   const state = useLocation().state;
   const userId = state.userId;
 
@@ -18,13 +24,22 @@ const JournalList = ({ toggleEditor, display, toggleView, journals }) => {
     toggleView();
   };
 
+  const onView = (key) => {
+    onOpenJournal(key);
+  };
+
   return (
     <section className={displayType}>
       <ul className={styles.cardContainer}>
         {journals.map((journal) => (
           <li className={styles.journalCard}>
             {' '}
-            <Journal journal={journal} key={journal.key} />
+            <Journal
+              journal={journal}
+              key={journal.key}
+              onView={onView}
+              openView={openView}
+            />
           </li>
         ))}
         <button onClick={openEditor}>Edit</button>
