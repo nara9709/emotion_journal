@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './journalView.module.css';
 
-const JournalView = ({ display, journalShown, journals }) => {
+const JournalView = ({ display, journalShown }) => {
   const displayType = display === 'open' ? styles.viewOpen : styles.viewClose;
 
   console.log(journalShown);
