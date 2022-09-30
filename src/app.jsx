@@ -55,7 +55,6 @@ function App({ authService }) {
     const journal = journals.filter((journal) => journal.key === key);
 
     journalShown = journal;
-    console.log(journalShown);
   };
 
   return (
