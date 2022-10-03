@@ -8,7 +8,7 @@ const JournalView = ({ display, journalShown }) => {
 
   return (
     <section className={displayType}>
-      <h1>{journalShown ? journalShown.title : 'No title'}</h1>
+      <h1>{journalShown ? journalShown.title : 'Title'}</h1>
     </section>
   );
 };
