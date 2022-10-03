@@ -13,7 +13,7 @@ function App({ authService }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
 
-  let journalShown = null;
+  const [journalShown, setJournalShown] = useState(null);
 
   const [journals, setJournal] = useState([
     {
@@ -52,9 +52,10 @@ function App({ authService }) {
 
   // If user clicks journal card, call this onOpneJournal and assign key to a key variable to show the journal
   const onOpenJournal = (key) => {
+    console.log(key);
     const journal = journals.filter((journal) => journal.key === key);
 
-    journalShown = journal;
+    setJournalShown(journal);
   };
 
   return (
@@ -90,6 +91,7 @@ function App({ authService }) {
                 <JournalView
                   display={onView ? 'open' : 'close'}
                   journalShown={journalShown}
+                  toggleView={toggleView}
                 />
               </div>
             </>
