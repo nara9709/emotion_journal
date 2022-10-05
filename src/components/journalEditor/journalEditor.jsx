@@ -1,14 +1,40 @@
 import React from 'react';
+import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
 const JournalEditor = ({ display }) => {
+  const titleRef = useRef();
+  const contentRef = useRef();
+  const dateRef = useRef();
+
+  const saveJounal = (e) => {
+    e.preventDefault();
+
+    // Get input values using Ref
+    const title = titleRef.current.value;
+    const content = contentRef.current.value;
+    const date = dateRef.current.value;
+
+    console.log(title, content, date);
+  };
   const displayType =
     display === 'close'
       ? styles.editorContainerClose
       : styles.editorContainerOpen;
   return (
     <section className={displayType}>
-      <h1>Journal Editor page</h1>
+      <form action="submit">
+        <input ref={dateRef} type="date" name="Today is?" />
+        <input type="text" ref={titleRef} />
+        <textarea
+          name="content"
+          cols="30"
+          rows="20"
+          ref={contentRef}
+        ></textarea>
+        <input type="file" name="image" accept="image/png, image/jpeg" />
+        <button onClick={saveJounal}>Save</button>
+      </form>
     </section>
   );
 };
