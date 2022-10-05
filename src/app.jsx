@@ -9,6 +9,13 @@ import JournalEditor from './components/journalEditor/journalEditor';
 import JournalView from './components/journalView/journalView';
 import { useEffect } from 'react';
 
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, set } from 'firebase/database';
+
+import firebaseApp from './service/firebase';
+
+const database = getDatabase(firebaseApp);
+
 function App({ authService }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
@@ -58,6 +65,15 @@ function App({ authService }) {
     setJournalShown(journal);
   };
 
+  // Save data
+  const writeContent = (userId, date, title, content, imageUrl) => {
+    set(ref(database, 'users/' + userId), {
+      title: title,
+      content: content,
+      image: imageUrl,
+    });
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -87,7 +103,10 @@ function App({ authService }) {
                   display={onEditor || onView ? 'half' : 'full'}
                   onOpenJournal={onOpenJournal}
                 />
-                <JournalEditor display={onEditor ? 'open' : 'close'} />
+                <JournalEditor
+                  display={onEditor ? 'open' : 'close'}
+                  uploadeData={writeContent}
+                />
                 <JournalView
                   display={onView ? 'open' : 'close'}
                   journalShown={journalShown}

@@ -2,7 +2,7 @@ import React from 'react';
 import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ display }) => {
+const JournalEditor = ({ display, uploadeData }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
@@ -14,6 +14,8 @@ const JournalEditor = ({ display }) => {
     const title = titleRef.current.value;
     const content = contentRef.current.value;
     const date = dateRef.current.value;
+
+    uploadeData('12312', date, title, content, 'www.naver.com');
 
     console.log(title, content, date);
   };
