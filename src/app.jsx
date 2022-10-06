@@ -22,8 +22,8 @@ function App({ authService }) {
 
   const [journalShown, setJournalShown] = useState(null);
 
-  const [journals, setJournal] = useState([
-    {
+  const [journals, setJournal] = useState({
+    1: {
       key: 1,
       date: '20220919',
       title: `Lovely day!`,
@@ -31,7 +31,7 @@ function App({ authService }) {
       image: '/image/sample_image.jpg',
       emotion: '🥰',
     },
-    {
+    2: {
       key: 2,
       date: '20221020',
       title: `I'm sad..`,
@@ -39,7 +39,7 @@ function App({ authService }) {
       image: '/image/sample_image.jpg',
       emotion: '🥲',
     },
-    {
+    3: {
       key: 3,
       date: '20221119',
       title: `I don't know what to do`,
@@ -47,7 +47,7 @@ function App({ authService }) {
       image: '/image/sample_image.jpg',
       emotion: '🥹',
     },
-  ]);
+  });
 
   const toggleEditor = () => {
     onEditor ? setOnEditor(false) : setOnEditor(true);
@@ -58,11 +58,22 @@ function App({ authService }) {
   };
 
   // If user clicks journal card, call this onOpneJournal and assign key to a key variable to show the journal
-  const onOpenJournal = (key) => {
-    console.log(key);
-    const journal = journals.filter((journal) => journal.key === key);
+  const onOpenJournal = (id) => {
+    console.log(id);
+
+    // let journal = null;
+
+    // Object.keys(journals).map((key) =>
+    //   key === id ? (journal = journals[key]) : (journal = null)
+    // );
+
+    // let journal = Object.keys(journals).find((key) => journals[key] === id);
+
+    let journal = journals[id];
 
     setJournalShown(journal);
+
+    console.log(journal);
   };
 
   // Save data
@@ -97,7 +108,6 @@ function App({ authService }) {
               <div className="journalContainer">
                 <JournalList
                   journals={journals && journals}
-                  key={journals.key}
                   toggleEditor={toggleEditor}
                   toggleView={toggleView}
                   display={onEditor || onView ? 'half' : 'full'}

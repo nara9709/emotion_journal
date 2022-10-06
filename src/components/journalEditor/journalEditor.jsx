@@ -26,8 +26,13 @@ const JournalEditor = ({ display, uploadeData }) => {
   return (
     <section className={displayType}>
       <form action="submit">
-        <input ref={dateRef} type="date" name="Today is?" />
-        <input type="text" ref={titleRef} />
+        <input ref={dateRef} type="date" name="date" />
+        <input
+          type="text"
+          ref={titleRef}
+          name="title"
+          placeholder="Today is.."
+        />
         <textarea
           name="content"
           cols="30"

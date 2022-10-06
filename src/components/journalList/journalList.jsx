@@ -32,12 +32,12 @@ const JournalList = ({
   return (
     <section className={displayType}>
       <ul className={styles.cardContainer}>
-        {journals.map((journal) => (
+        {Object.keys(journals).map((key) => (
           <li className={styles.journalCard}>
             {' '}
             <Journal
-              journal={journal}
-              key={journal.key}
+              journal={journals[key]}
+              key={key}
               onView={onView}
               openView={openView}
             />
