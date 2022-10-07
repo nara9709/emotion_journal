@@ -61,8 +61,6 @@ function App({ authService }) {
   const onOpenJournal = (id) => {
     console.log(id);
 
-    // let journal = null;
-
     // Object.keys(journals).map((key) =>
     //   key === id ? (journal = journals[key]) : (journal = null)
     // );
