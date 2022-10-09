@@ -59,19 +59,13 @@ function App({ authService }) {
 
   // If user clicks journal card, call this onOpneJournal and assign key to a key variable to show the journal
   const onOpenJournal = (id) => {
-    console.log(id);
-
-    // Object.keys(journals).map((key) =>
-    //   key === id ? (journal = journals[key]) : (journal = null)
-    // );
-
-    // let journal = Object.keys(journals).find((key) => journals[key] === id);
-
-    let journal = journals[id];
-
-    setJournalShown(journal);
-
-    console.log(journal);
+    setJournalShown({
+      key: journals[id].key,
+      title: journals[id].title,
+      date: journals[id].date,
+      emotion: journals[id].emotion,
+      content: journals[id].content,
+    });
   };
 
   // Save data
