@@ -3526,10 +3526,10 @@
   "resolved" "https://registry.npmjs.org/cloudinary-core/-/cloudinary-core-2.13.0.tgz"
   "version" "2.13.0"
 
-"cloudinary@^1.31.0":
-  "integrity" "sha512-+A/x0gsmzBya4KPabY6Vmj1d1hxjI2kEhbKy52bahLFhDc5xiMhClWbzurYfFA83OUbwLQGZpjnW+Fwu1Kq3kQ=="
-  "resolved" "https://registry.npmjs.org/cloudinary/-/cloudinary-1.31.0.tgz"
-  "version" "1.31.0"
+"cloudinary@^1.32.0":
+  "integrity" "sha512-hbc5/ilOkwD49+Lucqze3z+2Tejc3YdH4tkI+y1Ciabi9Qh9MYcy4M3rYeDAYiMS/jIz5FfHOzx+JjVnPJxNAQ=="
+  "resolved" "https://registry.npmjs.org/cloudinary/-/cloudinary-1.32.0.tgz"
+  "version" "1.32.0"
   dependencies:
     "cloudinary-core" "^2.10.2"
     "core-js" "^3.6.5"
