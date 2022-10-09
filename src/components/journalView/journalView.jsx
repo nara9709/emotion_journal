@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './journalView.module.css';
 
-const JournalView = ({ display, journalShown, toggleView }) => {
+const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
   const displayType = display === 'open' ? styles.viewOpen : styles.viewClose;
 
   const closeView = () => {
     toggleView();
+  };
+
+  const onDeleteJounal = () => {
+    toggleView();
+    deleteJournal(journalShown);
   };
 
   return (
@@ -19,6 +24,9 @@ const JournalView = ({ display, journalShown, toggleView }) => {
         <p className={styles.content}>
           {journalShown ? journalShown.content : 'No content :('}
         </p>
+        <span className={styles.deleteIcon} onClick={onDeleteJounal}>
+          <i class="fa-solid fa-trash"></i>
+        </span>
       </div>
     </section>
   );

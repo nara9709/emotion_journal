@@ -77,6 +77,14 @@ function App({ authService }) {
     });
   };
 
+  const deleteJournal = (journal) => {
+    setJournals((journals) => {
+      const updated = { ...journals };
+      delete updated[journal.key];
+      return updated;
+    });
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -113,6 +121,7 @@ function App({ authService }) {
                   display={onView ? 'open' : 'close'}
                   journalShown={journalShown}
                   toggleView={toggleView}
+                  deleteJournal={deleteJournal}
                 />
               </div>
             </>
