@@ -15,7 +15,14 @@ const JournalEditor = ({ display, uploadeData }) => {
     const content = contentRef.current.value;
     const date = dateRef.current.value;
 
-    uploadeData('12312', date, title, content, 'www.naver.com');
+    let journal = {
+      key: Date.now(),
+      title: title,
+      content: content,
+      date: date,
+    };
+
+    uploadeData(journal);
 
     console.log(title, content, date);
   };

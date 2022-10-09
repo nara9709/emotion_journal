@@ -10,7 +10,7 @@ import JournalView from './components/journalView/journalView';
 import { useEffect } from 'react';
 
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set, update } from 'firebase/database';
 
 import firebaseApp from './service/firebase';
 
@@ -22,7 +22,7 @@ function App({ authService }) {
 
   const [journalShown, setJournalShown] = useState(null);
 
-  const [journals, setJournal] = useState({
+  const [journals, setJournals] = useState({
     1: {
       key: 1,
       date: '20220919',
@@ -69,11 +69,11 @@ function App({ authService }) {
   };
 
   // Save data
-  const writeContent = (userId, date, title, content, imageUrl) => {
-    set(ref(database, 'users/' + userId), {
-      title: title,
-      content: content,
-      image: imageUrl,
+  const addOrUpdateJournal = (journal) => {
+    setJournals((journals) => {
+      const updated = { ...journals };
+      updated[journal.key] = journal;
+      return updated;
     });
   };
 
@@ -107,7 +107,7 @@ function App({ authService }) {
                 />
                 <JournalEditor
                   display={onEditor ? 'open' : 'close'}
-                  uploadeData={writeContent}
+                  uploadeData={addOrUpdateJournal}
                 />
                 <JournalView
                   display={onView ? 'open' : 'close'}
