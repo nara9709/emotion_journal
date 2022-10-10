@@ -4,14 +4,17 @@ import './index.css';
 import App from './app';
 import '@fortawesome/fontawesome-free/js/all.js';
 import AuthService from './service/auth';
-import ImageService from './service/cloudinary';
+import CloudinaryUploadWidget from './service/cloudinary';
 
 const authService = new AuthService();
-const imageService = new ImageService();
+const cloudinaryUploadWidget = new CloudinaryUploadWidget();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} imageService={imageService} />
+    <App
+      authService={authService}
+      cloudinaryUploadWidget={cloudinaryUploadWidget}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

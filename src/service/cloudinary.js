@@ -1,33 +1,22 @@
-// Require the cloudinary library
-const cloudinary = require('cloudinary').v2;
+const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
+const presetName = process.env.REACT_APP_CLOUDINARY_UPLADE_PRESET;
 
-// Return "https" URLs by setting secure: true
-cloudinary.config({
-  secure: true,
-});
+class CloudinaryUploadWidget {
+  onUpload() {
+    let myWidget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: `${cloudName}`,
+        upload_preset: `${presetName}`,
+      },
+      (error, result) => {
+        if (result.event === 'success') {
+          console.log(result.info.url); // result.info contains data from upload
+        }
+      }
+    );
 
-// Log the configuration
-console.log(cloudinary.config());
-
-class ImageService {
-  ploadImage = async (imagePath) => {
-    // Use the uploaded file's name as the asset's public ID and
-    // allow overwriting the asset with new versions
-    const options = {
-      use_filename: true,
-      unique_filename: false,
-      overwrite: true,
-    };
-
-    try {
-      // Upload the image
-      const result = await cloudinary.uploader.upload(imagePath, options);
-      console.log(result);
-      return result.public_id;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    return myWidget.open();
+  }
 }
 
-export default ImageService;
+export default CloudinaryUploadWidget;

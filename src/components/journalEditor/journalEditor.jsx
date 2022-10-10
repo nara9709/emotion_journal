@@ -2,21 +2,18 @@ import React from 'react';
 import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ display, uploadeData, imageService }) => {
+const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
 
   // Uplade Image to Cloudinary
-  const uploadeImage = (imagePath) => {
-    imageService.uploadImage();
+  const uploadeImage = () => {
+    cloudinaryUploadWidget.onUpload();
   };
 
   const saveJounal = (e) => {
     e.preventDefault();
-
-    // Save image file
-    uploadeImage('src/image/sample_image.jpeg');
 
     // Get input values using Ref
     const title = titleRef.current.value;
@@ -54,7 +51,12 @@ const JournalEditor = ({ display, uploadeData, imageService }) => {
           rows="20"
           ref={contentRef}
         ></textarea>
-        <input type="file" name="image" accept="image/png, image/jpeg" />
+        <input
+          type="button"
+          name="image"
+          value="Upload Image"
+          onClick={uploadeImage}
+        />
         <button onClick={saveJounal}>Save</button>
       </form>
     </section>
