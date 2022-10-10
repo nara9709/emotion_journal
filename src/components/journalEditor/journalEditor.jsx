@@ -2,13 +2,21 @@ import React from 'react';
 import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ display, uploadeData }) => {
+const JournalEditor = ({ display, uploadeData, imageService }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
 
+  // Uplade Image to Cloudinary
+  const uploadeImage = (imagePath) => {
+    imageService.uploadImage();
+  };
+
   const saveJounal = (e) => {
     e.preventDefault();
+
+    // Save image file
+    uploadeImage('src/image/sample_image.jpeg');
 
     // Get input values using Ref
     const title = titleRef.current.value;

@@ -16,7 +16,7 @@ import firebaseApp from './service/firebase';
 
 const database = getDatabase(firebaseApp);
 
-function App({ authService }) {
+function App({ authService, imageService }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
 
@@ -116,6 +116,7 @@ function App({ authService }) {
                 <JournalEditor
                   display={onEditor ? 'open' : 'close'}
                   uploadeData={addOrUpdateJournal}
+                  imageService={imageService}
                 />
                 <JournalView
                   display={onView ? 'open' : 'close'}
