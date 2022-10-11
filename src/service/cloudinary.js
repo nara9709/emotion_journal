@@ -1,5 +1,5 @@
 const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
-const presetName = process.env.REACT_APP_CLOUDINARY_UPLADE_PRESET;
+const presetName = process.env.REACT_APP_CLOUDINARY_UPLOADE_PRESET;
 
 class CloudinaryUploadWidget {
   onUpload() {

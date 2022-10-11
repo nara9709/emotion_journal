@@ -8,7 +8,7 @@ const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
   const dateRef = useRef();
 
   // Uplade Image to Cloudinary
-  const uploadeImage = () => {
+  const uploadImage = () => {
     cloudinaryUploadWidget.onUpload();
   };
 
@@ -55,7 +55,7 @@ const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
           type="button"
           name="image"
           value="Upload Image"
-          onClick={uploadeImage}
+          onClick={uploadImage}
         />
         <button onClick={saveJounal}>Save</button>
       </form>
