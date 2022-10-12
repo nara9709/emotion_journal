@@ -1,16 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
+const JournalEditor = ({ display, uploadeData, FileInput }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
-
-  // Uplade Image to Cloudinary
-  const uploadImage = () => {
-    cloudinaryUploadWidget.onUpload();
-  };
+  const [url, setUrl] = useState(null);
+  const [imageName, setName] = useState(null);
 
   const saveJounal = (e) => {
     e.preventDefault();
@@ -25,16 +23,27 @@ const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
       title: title,
       content: content,
       date: date,
+      url: url,
+      imageName: imageName,
     };
 
     uploadeData(journal);
 
-    console.log(title, content, date);
+    console.log(journal);
   };
   const displayType =
     display === 'close'
       ? styles.editorContainerClose
       : styles.editorContainerOpen;
+
+  const onFileChange = (file) => {
+    const url = file.url;
+    const imageName = file.name;
+
+    setName(imageName);
+    setUrl(url);
+  };
+
   return (
     <section className={displayType}>
       <form action="submit">
@@ -51,12 +60,9 @@ const JournalEditor = ({ display, uploadeData, cloudinaryUploadWidget }) => {
           rows="20"
           ref={contentRef}
         ></textarea>
-        <input
-          type="button"
-          name="image"
-          value="Upload Image"
-          onClick={uploadImage}
-        />
+
+        <FileInput onFileChange={onFileChange} />
+
         <button onClick={saveJounal}>Save</button>
       </form>
     </section>

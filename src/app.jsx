@@ -16,7 +16,7 @@ import firebaseApp from './service/firebase';
 
 const database = getDatabase(firebaseApp);
 
-function App({ authService, cloudinaryUploadWidget }) {
+function App({ authService, FileInput }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
 
@@ -114,9 +114,9 @@ function App({ authService, cloudinaryUploadWidget }) {
                   onOpenJournal={onOpenJournal}
                 />
                 <JournalEditor
+                  FileInput={FileInput}
                   display={onEditor ? 'open' : 'close'}
                   uploadeData={addOrUpdateJournal}
-                  cloudinaryUploadWidget={cloudinaryUploadWidget}
                 />
                 <JournalView
                   display={onView ? 'open' : 'close'}
