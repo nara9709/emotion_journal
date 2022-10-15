@@ -1,4 +1,4 @@
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set, remove } from 'firebase/database';
 import firebaseApp from './firebase';
 
 const database = getDatabase(firebaseApp);
@@ -15,6 +15,10 @@ class HandleDatabase {
       emotion: journal.emotion,
       imageName: journal.imageName,
     });
+  }
+
+  removeUserData(userId, key) {
+    remove(ref(database, `journal/${userId}/${key}`));
   }
 }
 

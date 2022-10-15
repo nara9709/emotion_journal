@@ -10,7 +10,7 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
 
   const onDeleteJounal = () => {
     toggleView();
-    deleteJournal(journalShown);
+    deleteJournal(journalShown.key);
   };
 
   return (

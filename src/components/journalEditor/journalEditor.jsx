@@ -33,6 +33,7 @@ const JournalEditor = ({ display, uploadeData, FileInput, wirteData }) => {
 
     uploadeData(journal);
   };
+
   const displayType =
     display === 'close'
       ? styles.editorContainerClose

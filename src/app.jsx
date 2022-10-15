@@ -73,12 +73,8 @@ function App({ authService, FileInput, handleDatabase }) {
     });
   };
 
-  const deleteJournal = (journal) => {
-    setJournals((journals) => {
-      const updated = { ...journals };
-      delete updated[journal.key];
-      return updated;
-    });
+  const deleteJournal = (key) => {
+    handleDatabase.removeUserData(userId, key);
   };
 
   const wirteData = (journal) => {
