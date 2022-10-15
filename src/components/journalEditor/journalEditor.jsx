@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ display, uploadeData, FileInput }) => {
+const JournalEditor = ({ display, uploadeData, FileInput, wirteData }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
@@ -17,6 +17,7 @@ const JournalEditor = ({ display, uploadeData, FileInput }) => {
     const title = titleRef.current.value;
     const content = contentRef.current.value;
     const date = dateRef.current.value;
+    const emotion = null;
 
     let journal = {
       key: Date.now(),
@@ -25,11 +26,12 @@ const JournalEditor = ({ display, uploadeData, FileInput }) => {
       date: date,
       url: url,
       imageName: imageName,
+      emotion: emotion,
     };
 
-    uploadeData(journal);
+    wirteData(journal);
 
-    console.log(journal);
+    uploadeData(journal);
   };
   const displayType =
     display === 'close'

@@ -4,7 +4,7 @@ import { React, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const Login = ({ authService, setOnEditor, setOnView }) => {
+const Login = ({ authService, setOnEditor, setOnView, setUserId }) => {
   // Dispatch useRef to email and password to get values
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -14,6 +14,7 @@ const Login = ({ authService, setOnEditor, setOnView }) => {
   useEffect(() => {
     authService.onAuthChange((user) => {
       user && goToJournalList(user.uid);
+      user && setUserId(user.uid);
     });
     // And reset page display states
     setOnEditor(false);
@@ -30,10 +31,11 @@ const Login = ({ authService, setOnEditor, setOnView }) => {
     e.preventDefault();
     authService
       .loginWithEmail(emailRef.current.value, passwordRef.current.value)
-      .then((data) =>
+      .then((data) => {
         // The signed-in user info.
-        goToJournalList(data.user.uid)
-      )
+        goToJournalList(data.user.uid);
+        setUserId(data.user.uid);
+      })
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
@@ -44,10 +46,11 @@ const Login = ({ authService, setOnEditor, setOnView }) => {
   const onLogInWithGoogle = () => {
     authService
       .loginWithAuth('Google')
-      .then((data) =>
+      .then((data) => {
         // The signed-in user info.
-        goToJournalList(data.user.uid)
-      )
+        goToJournalList(data.user.uid);
+        setUserId(data.user.uid);
+      })
       .catch((error) => {
         // Handle Errors here.
         const errorMessage = error.message;
@@ -59,10 +62,11 @@ const Login = ({ authService, setOnEditor, setOnView }) => {
   const onLogInWithGithub = () => {
     authService
       .loginWithAuth('Github')
-      .then((data) =>
+      .then((data) => {
         // The signed-in user info.
-        goToJournalList(data.user.uid)
-      )
+        goToJournalList(data.user.uid);
+        setUserId(data.user.uid);
+      })
       .catch((error) => {
         // Handle Errors here.
         const errorMessage = error.message;

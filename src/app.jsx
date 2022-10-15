@@ -9,16 +9,11 @@ import JournalEditor from './components/journalEditor/journalEditor';
 import JournalView from './components/journalView/journalView';
 import { useEffect } from 'react';
 
-import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, set, update } from 'firebase/database';
-
-import firebaseApp from './service/firebase';
-
-const database = getDatabase(firebaseApp);
-
-function App({ authService, FileInput }) {
+function App({ authService, FileInput, handleDatabase }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
+
+  const [userId, setUserId] = useState(null);
 
   const [journalShown, setJournalShown] = useState(null);
 
@@ -28,7 +23,7 @@ function App({ authService, FileInput }) {
       date: '20220919',
       title: `Lovely day!`,
       content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      image: '/image/sample_image.jpg',
+      url: '/image/sample_image.jpg',
       emotion: '🥰',
     },
     2: {
@@ -36,7 +31,7 @@ function App({ authService, FileInput }) {
       date: '20221020',
       title: `I'm sad..`,
       content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      image: '/image/sample_image.jpg',
+      url: '/image/sample_image.jpg',
       emotion: '🥲',
     },
     3: {
@@ -86,6 +81,10 @@ function App({ authService, FileInput }) {
     });
   };
 
+  const wirteData = (journal) => {
+    handleDatabase.writeUserData(userId, journal);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -96,6 +95,7 @@ function App({ authService, FileInput }) {
               authService={authService}
               setOnEditor={setOnEditor}
               setOnView={setOnView}
+              setUserId={setUserId}
             />
           }
         ></Route>
@@ -115,6 +115,7 @@ function App({ authService, FileInput }) {
                   onOpenJournal={onOpenJournal}
                 />
                 <JournalEditor
+                  wirteData={wirteData}
                   FileInput={FileInput}
                   display={onEditor ? 'open' : 'close'}
                   uploadeData={addOrUpdateJournal}

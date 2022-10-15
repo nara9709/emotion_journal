@@ -8,6 +8,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
   appId: process.env.REACT_APP_FIREBASE_APPID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
 };
 
 // Initialize Firebase
