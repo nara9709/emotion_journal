@@ -25,7 +25,6 @@ const JournalList = ({
   };
 
   const onView = (key) => {
-    console.log(key);
     onOpenJournal(key);
   };
 

@@ -44,7 +44,7 @@ function App({ authService, FileInput }) {
       date: '20221119',
       title: `I don't know what to do`,
       content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      image: '/image/sample_image.jpg',
+      url: '/image/sample_image.jpg',
       emotion: '🥹',
     },
   });
@@ -65,6 +65,7 @@ function App({ authService, FileInput }) {
       date: journals[id].date,
       emotion: journals[id].emotion,
       content: journals[id].content,
+      url: journals[id].url,
     });
   };
 
