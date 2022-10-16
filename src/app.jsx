@@ -4,12 +4,16 @@ import Login from './components/login/login';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header';
 import JournalList from './components/journalList/journalList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import JournalEditor from './components/journalEditor/journalEditor';
 import JournalView from './components/journalView/journalView';
-import { useEffect } from 'react';
 
-function App({ authService, FileInput, handleDatabase }) {
+import { getDatabase, ref, set, remove, child, get } from 'firebase/database';
+import firebaseApp from './service/firebase';
+
+const database = getDatabase(firebaseApp);
+
+function App({ authService, FileInput }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
 
@@ -73,12 +77,45 @@ function App({ authService, FileInput, handleDatabase }) {
     });
   };
 
+  const readData = () => {
+    const journalRef = ref(database, `journal/${userId}`);
+    let journals = {};
+
+    const dbRef = ref(getDatabase(firebaseApp));
+    get(child(dbRef, `journal/${userId}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          journals = Object.assign(snapshot.val());
+
+          console.log(journals);
+
+          for (const journal in journals) {
+            console.log(`${journal}: ${journals[journal]}`);
+          }
+        } else {
+          console.log('No data available');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const deleteJournal = (key) => {
-    handleDatabase.removeUserData(userId, key);
+    remove(ref(database, `journal/${userId}/${key}`));
   };
 
   const wirteData = (journal) => {
-    handleDatabase.writeUserData(userId, journal);
+    const key = journal.key;
+    set(ref(database, `journal/${userId}/${key}`), {
+      key: key,
+      date: journal.date,
+      title: journal.title,
+      content: journal.content,
+      url: journal.url,
+      emotion: journal.emotion,
+      imageName: journal.imageName,
+    });
   };
 
   return (
@@ -109,6 +146,7 @@ function App({ authService, FileInput, handleDatabase }) {
                   toggleView={toggleView}
                   display={onEditor || onView ? 'half' : 'full'}
                   onOpenJournal={onOpenJournal}
+                  readData={readData}
                 />
                 <JournalEditor
                   wirteData={wirteData}

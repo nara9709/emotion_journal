@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Journal from '../journal/journal';
 import styles from './journalList.module.css';
@@ -9,9 +10,14 @@ const JournalList = ({
   display,
   toggleView,
   journals,
+  readData,
 }) => {
   const state = useLocation().state;
   const userId = state.userId;
+
+  useEffect(() => {
+    readData();
+  });
 
   const displayType =
     display === 'full' ? styles.listContainerFull : styles.listContainerHalf;

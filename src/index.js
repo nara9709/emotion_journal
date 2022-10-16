@@ -7,22 +7,17 @@ import AuthService from './service/auth';
 
 import ImageUploader from './service/imageUploader';
 import ImageFileInput from './components/image_file_input/image_file_input';
-import HandleDatabase from './service/database';
 
 const authService = new AuthService();
 const imageUploader = new ImageUploader();
-const handleDatabase = new HandleDatabase();
+
 const FileInput = (props) => (
   <ImageFileInput {...props} imageUploader={imageUploader}></ImageFileInput>
 );
 
 ReactDOM.render(
   <React.StrictMode>
-    <App
-      authService={authService}
-      FileInput={FileInput}
-      handleDatabase={handleDatabase}
-    />
+    <App authService={authService} FileInput={FileInput} />
   </React.StrictMode>,
   document.getElementById('root')
 );
