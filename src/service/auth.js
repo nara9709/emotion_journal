@@ -20,7 +20,6 @@ class AuthService {
     } else {
       authProvider = new GithubAuthProvider();
     }
-
     return signInWithPopup(auth, authProvider);
   }
 

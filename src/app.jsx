@@ -1,17 +1,20 @@
 import * as React from 'react';
 import './app.css';
 import Login from './components/login/login';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header';
 import JournalList from './components/journalList/journalList';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import JournalEditor from './components/journalEditor/journalEditor';
 import JournalView from './components/journalView/journalView';
 
-import { getDatabase, ref, set, remove, child, get } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+
+import { getDatabase, ref, set, remove, onValue } from 'firebase/database';
 import firebaseApp from './service/firebase';
 
 const database = getDatabase(firebaseApp);
+const auth = getAuth(firebaseApp);
 
 function App({ authService, FileInput }) {
   const [onEditor, setOnEditor] = useState(false);
@@ -21,32 +24,7 @@ function App({ authService, FileInput }) {
 
   const [journalShown, setJournalShown] = useState(null);
 
-  const [journals, setJournals] = useState({
-    1: {
-      key: 1,
-      date: '20220919',
-      title: `Lovely day!`,
-      content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      url: '/image/sample_image.jpg',
-      emotion: '🥰',
-    },
-    2: {
-      key: 2,
-      date: '20221020',
-      title: `I'm sad..`,
-      content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      url: '/image/sample_image.jpg',
-      emotion: '🥲',
-    },
-    3: {
-      key: 3,
-      date: '20221119',
-      title: `I don't know what to do`,
-      content: `Today is my birthday! It was really fun. I met a lot of friends and they gave me various gifts`,
-      url: '/image/sample_image.jpg',
-      emotion: '🥹',
-    },
-  });
+  const [journals, setJournals] = useState(null);
 
   const toggleEditor = () => {
     onEditor ? setOnEditor(false) : setOnEditor(true);
@@ -78,27 +56,13 @@ function App({ authService, FileInput }) {
   };
 
   const readData = () => {
-    const journalRef = ref(database, `journal/${userId}`);
-    let journals = {};
+    const userId = auth.currentUser.uid;
 
-    const dbRef = ref(getDatabase(firebaseApp));
-    get(child(dbRef, `journal/${userId}`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          journals = Object.assign(snapshot.val());
-
-          console.log(journals);
-
-          for (const journal in journals) {
-            console.log(`${journal}: ${journals[journal]}`);
-          }
-        } else {
-          console.log('No data available');
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const journalRef = ref(database, 'journal/' + userId);
+    onValue(journalRef, (snapshot) => {
+      const data = snapshot.val();
+      setJournals(data);
+    });
   };
 
   const deleteJournal = (key) => {
@@ -141,7 +105,7 @@ function App({ authService, FileInput }) {
               <Header authService={authService} toggleEditor={toggleEditor} />
               <div className="journalContainer">
                 <JournalList
-                  journals={journals && journals}
+                  journals={journals}
                   toggleEditor={toggleEditor}
                   toggleView={toggleView}
                   display={onEditor || onView ? 'half' : 'full'}

@@ -12,12 +12,9 @@ const JournalList = ({
   journals,
   readData,
 }) => {
-  const state = useLocation().state;
-  const userId = state.userId;
-
   useEffect(() => {
     readData();
-  });
+  }, []);
 
   const displayType =
     display === 'full' ? styles.listContainerFull : styles.listContainerHalf;
@@ -37,17 +34,17 @@ const JournalList = ({
   return (
     <section className={displayType}>
       <ul className={styles.cardContainer}>
-        {Object.keys(journals).map((key) => (
-          <li className={styles.journalCard}>
-            {' '}
-            <Journal
-              journal={journals[key]}
-              key={key}
-              onView={onView}
-              openView={openView}
-            />
-          </li>
-        ))}
+        {journals &&
+          Object.keys(journals).map((key) => (
+            <li className={styles.journalCard}>
+              <Journal
+                journal={journals[key]}
+                key={key}
+                onView={onView}
+                openView={openView}
+              />
+            </li>
+          ))}
         <button onClick={openEditor}>Edit</button>
         <button onClick={openView}>View</button>
       </ul>
