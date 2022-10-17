@@ -45,8 +45,10 @@ const JournalList = ({
               />
             </li>
           ))}
-        <button onClick={openEditor}>Edit</button>
-        <button onClick={openView}>View</button>
+
+        <button className={styles.editBtn} onClick={openEditor}>
+          <i className="fa-solid fa-pen-to-square"></i>
+        </button>
       </ul>
     </section>
   );

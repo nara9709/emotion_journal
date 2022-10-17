@@ -12,10 +12,12 @@ const Header = ({ authService, toggleEditor }) => {
 
   return (
     <section className={styles.headerContainer}>
-      <h1 className={styles.title}>How was your day?</h1>
-      <button onClick={onLogout} className={styles.btnLogout}>
-        <i className="fa-solid fa-right-from-bracket"></i>
-      </button>
+      <h1 className={styles.title}>
+        How was your day?
+        <button onClick={onLogout} className={styles.btnLogout}>
+          <i className="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </h1>
     </section>
   );
 };

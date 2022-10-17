@@ -1,6 +1,21 @@
+@value journal-grey from '../../common/colors.css';
+
+input {
+  border: none;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
+
 .editorContainerOpen {
   width: 50%;
-  background-color: antiquewhite;
+  background-color: white;
   border-bottom-right-radius: 10px;
 }
 
@@ -10,6 +25,12 @@
   background-color: antiquewhite;
   border-bottom-right-radius: 10px;
   display: none;
+}
+
+.eomtions {
+  width: 50px;
+  border: none;
+  background-color: transparent;
 }
 
 @keyframes widthAnimation {

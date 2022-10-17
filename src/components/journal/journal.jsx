@@ -3,10 +3,11 @@ import { useEffect } from 'react';
 import styles from './journal.module.css';
 
 const Journal = ({ journal, onView, openView }) => {
-  const year = journal.date.slice(0, 4);
-  const monthOriginal = journal.date.slice(4, 6);
   let month = null;
-  const date = journal.date.slice(6, 8);
+  let emotion = null;
+  const year = journal.date.slice(0, 4);
+  const monthOriginal = journal.date.slice(5, 7);
+  const date = journal.date.slice(8, 10);
 
   //   Assign month text to month variable
   const calMonth = () => {
@@ -48,7 +49,7 @@ const Journal = ({ journal, onView, openView }) => {
         month = 'Deb';
         break;
       default:
-        month = undefined;
+        month = null;
     }
   };
 
@@ -65,6 +66,7 @@ const Journal = ({ journal, onView, openView }) => {
         {month} {date} {year}
       </h3>
       <h3 className={styles.title}>{journal.title}</h3>
+
       <p> {journal.emotion}</p>
     </div>
   );

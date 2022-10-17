@@ -7,6 +7,7 @@ const JournalEditor = ({ display, uploadeData, FileInput, wirteData }) => {
   const titleRef = useRef();
   const contentRef = useRef();
   const dateRef = useRef();
+  const emoRef = useRef();
   const [url, setUrl] = useState(null);
   const [imageName, setName] = useState(null);
 
@@ -17,7 +18,9 @@ const JournalEditor = ({ display, uploadeData, FileInput, wirteData }) => {
     const title = titleRef.current.value;
     const content = contentRef.current.value;
     const date = dateRef.current.value;
-    const emotion = null;
+    const emotion = emoRef.current.value;
+
+    console.log(emotion);
 
     let journal = {
       key: Date.now(),
@@ -57,6 +60,26 @@ const JournalEditor = ({ display, uploadeData, FileInput, wirteData }) => {
           name="title"
           placeholder="Today is.."
         />
+        <div>
+          <label className={styles.emotionLabel} for="cars">
+            How do you feel today?
+          </label>
+
+          <select
+            ref={emoRef}
+            name="emotions"
+            id="emotion"
+            className={styles.eomtions}
+          >
+            <option value="happy">😊</option>
+            <option value="sad">😢</option>
+            <option value="love">🥰</option>
+            <option value="sullen">😞</option>
+            <option value="nomal">😐</option>
+            <option value="upset">😡</option>
+            <option value="weary">😩</option>
+          </select>
+        </div>
         <textarea
           name="content"
           cols="30"
