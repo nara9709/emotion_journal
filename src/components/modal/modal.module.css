@@ -1,0 +1,68 @@
+@value journal-alert-red from '../../common/colors.css';
+
+.modalWindow {
+  position: absolute;
+  left: 750px;
+  top: 250px;
+  text-align: center;
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  border-radius: 15px;
+  animation-name: showUp;
+  animation-duration: 300ms;
+  box-shadow: 4px 2px 11px 1px rgba(0, 0, 0, 0.17);
+}
+
+@keyframes showUp {
+  0% {
+    top: 300px;
+  }
+
+  100% {
+    top: 250px;
+  }
+}
+
+.modalTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  height: 60px;
+  margin: 0;
+  color: white;
+  background-color: journal-alert-red;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.modalWindow p {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 0;
+  height: 45px;
+  font-size: 18px;
+}
+
+.modalBtn {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: journal-alert-red;
+  padding: 10px 15px;
+  margin-right: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.modalBtnContainer {
+  text-align: center;
+  padding: 10px 15px 10px 15px;
+}
+
+.modalBtn:hover {
+  cursor: pointer;
+  opacity: 70%;
+}

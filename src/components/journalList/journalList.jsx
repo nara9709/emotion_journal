@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Journal from '../journal/journal';
 import styles from './journalList.module.css';
 
@@ -45,11 +44,10 @@ const JournalList = ({
               />
             </li>
           ))}
-
-        <button className={styles.editBtn} onClick={openEditor}>
-          <i className="fa-solid fa-pen-to-square"></i>
-        </button>
       </ul>
+      <button className={styles.editBtn} onClick={openEditor}>
+        <i className="fa-solid fa-pen-to-square"></i>
+      </button>
     </section>
   );
 };

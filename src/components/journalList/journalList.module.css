@@ -50,14 +50,17 @@
 }
 
 .editBtn {
-  position: absolute;
-  left: 510px;
-  bottom: 130px;
-  width: 100%;
-  background-color: transparent;
+  position: sticky;
+  float: right;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  background-color: journal-dark-green;
   border: none;
+  border-radius: 50%;
   font-size: 2rem;
-  color: journal-dark-green;
+  color: white;
+  margin: 1em;
 }
 
 .editBtn:hover {

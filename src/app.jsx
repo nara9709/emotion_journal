@@ -56,9 +56,9 @@ function App({ authService, FileInput }) {
   };
 
   const readData = () => {
-    const userId = auth.currentUser.uid;
+    const user = auth.currentUser ? auth.currentUser.uid : userId;
 
-    const journalRef = ref(database, 'journal/' + userId);
+    const journalRef = ref(database, 'journal/' + user);
     onValue(journalRef, (snapshot) => {
       const data = snapshot.val();
       setJournals(data);
@@ -116,6 +116,7 @@ function App({ authService, FileInput }) {
                   wirteData={wirteData}
                   FileInput={FileInput}
                   display={onEditor ? 'open' : 'close'}
+                  setOnEditor={setOnEditor}
                   uploadeData={addOrUpdateJournal}
                 />
                 <JournalView

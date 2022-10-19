@@ -1,3 +1,7 @@
+section {
+  overflow-y: scroll;
+}
+
 .viewClose {
   display: none;
 }
@@ -8,10 +12,8 @@
 }
 
 .closeIcon {
+  float: right;
   font-size: 1.5em;
-  position: absolute;
-  right: 200px;
-  top: 180px;
 }
 
 .closeIcon:hover {
@@ -25,4 +27,8 @@
 
 .deleteIcon:hover {
   cursor: pointer;
+}
+
+.image {
+  margin-top: 3em;
 }

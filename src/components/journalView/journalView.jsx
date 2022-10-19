@@ -48,17 +48,25 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
   return (
     <section className={displayType}>
       <div>
-        <h1>{journalShown ? emotion : null}</h1>
+        <div>
+          <h1>{journalShown ? emotion : null}</h1>
+          <span className={styles.closeIcon} onClick={closeView}>
+            <i className="fa-solid fa-x"></i>
+          </span>
+        </div>
+
         <h1>{journalShown ? journalShown.title : 'Title'}</h1>
 
         <h2>{journalShown ? journalShown.date : 'No date :('}</h2>
-        <span className={styles.closeIcon} onClick={closeView}>
-          <i className="fa-solid fa-x"></i>
-        </span>
+
         <p className={styles.content}>
           {journalShown ? journalShown.content : 'No content :('}
         </p>
-        <img src={journalShown ? journalShown.url : null} alt="" />
+        <img
+          className={styles.image}
+          src={journalShown ? journalShown.url : null}
+          alt="journal_image"
+        />
         <span className={styles.deleteIcon} onClick={onDeleteJounal}>
           <i class="fa-solid fa-trash"></i>
         </span>

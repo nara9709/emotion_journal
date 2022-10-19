@@ -66,8 +66,6 @@ const Journal = ({ journal, onView, openView }) => {
         {month} {date} {year}
       </h3>
       <h3 className={styles.title}>{journal.title}</h3>
-
-      <p> {journal.emotion}</p>
     </div>
   );
 };
