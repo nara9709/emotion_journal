@@ -4,7 +4,6 @@ import styles from './journal.module.css';
 
 const Journal = ({ journal, onView, openView }) => {
   let month = null;
-  let emotion = null;
   const year = journal.date.slice(0, 4);
   const monthOriginal = journal.date.slice(5, 7);
   const date = journal.date.slice(8, 10);
@@ -55,6 +54,37 @@ const Journal = ({ journal, onView, openView }) => {
 
   calMonth();
 
+  let emotion = null;
+  const makeEmotion = () => {
+    switch (journal ? journal.emotion : emotion) {
+      case 'happy':
+        emotion = '😁';
+        break;
+      case 'sad':
+        emotion = '😢';
+        break;
+      case 'love':
+        emotion = '🥰';
+        break;
+      case 'sullen':
+        emotion = '😞';
+        break;
+      case 'nomal':
+        emotion = '😐';
+        break;
+      case 'upset':
+        emotion = '😡';
+        break;
+      case 'weary':
+        emotion = '😩';
+        break;
+      default:
+        emotion = null;
+    }
+  };
+
+  makeEmotion();
+
   const journalOpen = () => {
     onView(journal.key);
     openView();
@@ -62,10 +92,11 @@ const Journal = ({ journal, onView, openView }) => {
 
   return (
     <div className={styles.container} onClick={journalOpen}>
-      <h3>
+      <h3 className={styles.date}>
         {month} {date} {year}
       </h3>
       <h3 className={styles.title}>{journal.title}</h3>
+      <p className={styles.emotion}>{emotion}</p>
     </div>
   );
 };

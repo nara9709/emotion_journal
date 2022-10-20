@@ -1,5 +1,7 @@
+@value journal-main-green, journal-alert-red, journal-dark-green from '../../common/colors.css';
+
 section {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .viewClose {
@@ -7,13 +9,35 @@ section {
 }
 
 .viewOpen {
-  width: 50%;
+  width: 80%;
+  padding: 1em;
   background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.leftSection {
+  width: 50%;
+}
+
+.rightSection {
+  width: 50%;
+  display: flex;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .closeIcon {
-  float: right;
+  position: relative;
+  left: -80px;
+  height: 50px;
+  float: left;
   font-size: 1.5em;
+  margin-top: 1em;
 }
 
 .closeIcon:hover {
@@ -21,14 +45,50 @@ section {
   opacity: 40%;
 }
 
-.deleteIcon {
-  font-size: 1.5em;
-}
-
-.deleteIcon:hover {
-  cursor: pointer;
+.imgContainer {
+  width: 100%;
+  margin: auto;
+  margin-top: 6em;
+  margin-bottom: 1.5em;
+  margin-right: 1em;
 }
 
 .image {
+  width: 100%;
+}
+
+.iconContainer {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editIcon,
+.deleteIcon {
+  width: 60px;
   margin-top: 3em;
+  font-size: 1.8em;
+}
+
+.editIcon {
+  color: journal-dark-green;
+}
+
+.deleteIcon {
+  color: journal-alert-red;
+}
+
+.deleteIcon:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.date {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-right: 0.5em;
+}
+
+.emotion {
+  font-size: 2em;
 }

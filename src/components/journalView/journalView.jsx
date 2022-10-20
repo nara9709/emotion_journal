@@ -47,30 +47,51 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
 
   return (
     <section className={displayType}>
-      <div>
-        <div>
-          <h1>{journalShown ? emotion : null}</h1>
+      {/* Left section start */}
+      <div className={styles.leftSection}>
+        <div className={styles.headerContainer}>
           <span className={styles.closeIcon} onClick={closeView}>
             <i className="fa-solid fa-x"></i>
+          </span>
+          <span className={styles.date}>
+            {journalShown ? journalShown.date : 'No date :('}
+          </span>
+          <span className={styles.emotion}>
+            {journalShown ? emotion : null}
           </span>
         </div>
 
         <h1>{journalShown ? journalShown.title : 'Title'}</h1>
 
-        <h2>{journalShown ? journalShown.date : 'No date :('}</h2>
-
         <p className={styles.content}>
           {journalShown ? journalShown.content : 'No content :('}
         </p>
-        <img
-          className={styles.image}
-          src={journalShown ? journalShown.url : null}
-          alt="journal_image"
-        />
-        <span className={styles.deleteIcon} onClick={onDeleteJounal}>
-          <i class="fa-solid fa-trash"></i>
-        </span>
+        <div className={styles.iconContainer}>
+          <span className={styles.deleteIcon} onClick={onDeleteJounal}>
+            <i class="fa-solid fa-trash"></i>
+          </span>
+          <span className={styles.editIcon}>
+            <i class="fa-solid fa-pen-to-square"></i>
+          </span>
+        </div>
       </div>
+      {/* Left section end */}
+
+      {/* Right section start */}
+
+      {journalShown && journalShown.url ? (
+        <div className={styles.rightSection}>
+          <div className={styles.imgContainer}>
+            <img
+              className={styles.image}
+              src={journalShown ? journalShown.url : null}
+              alt="journal_image"
+            />
+          </div>
+        </div>
+      ) : null}
+
+      {/* Right section end */}
     </section>
   );
 };

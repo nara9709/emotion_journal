@@ -12,7 +12,10 @@
 }
 
 .title {
-  font-size: 1.7em;
+  font-size: 2em;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
 }
 
 .btnLogout {

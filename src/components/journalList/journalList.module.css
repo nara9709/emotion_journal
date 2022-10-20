@@ -13,19 +13,8 @@
 .listContainerHalf {
   background-color: white;
   border-bottom-left-radius: 10px;
-  animation-name: widthAnimationHalf;
-  animation-duration: 2s;
   width: 50%;
   overflow-y: scroll;
-}
-
-@keyframes widthAnimationHalf {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 50%;
-  }
 }
 
 .cardContainer {
