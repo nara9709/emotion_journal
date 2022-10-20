@@ -11,7 +11,7 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
 
   const onDeleteJounal = () => {
     toggleView();
-    deleteJournal(journalShown.key);
+    deleteJournal(journalShown);
   };
 
   let emotion = null;

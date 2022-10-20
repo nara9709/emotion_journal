@@ -4,26 +4,30 @@ import Login from './components/login/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header';
 import JournalList from './components/journalList/journalList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import JournalEditor from './components/journalEditor/journalEditor';
 import JournalView from './components/journalView/journalView';
 
 import { getAuth } from 'firebase/auth';
 
-import { getDatabase, ref, set, remove, onValue } from 'firebase/database';
+import {
+  getDatabase,
+  ref,
+  set,
+  remove,
+  onValue,
+  update,
+} from 'firebase/database';
 import firebaseApp from './service/firebase';
 
 const database = getDatabase(firebaseApp);
 const auth = getAuth(firebaseApp);
 
-function App({ authService, FileInput }) {
+function App({ authService, FileInput, journalRepository }) {
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
-
   const [userId, setUserId] = useState(null);
-
   const [journalShown, setJournalShown] = useState(null);
-
   const [journals, setJournals] = useState(null);
 
   const toggleEditor = () => {
@@ -46,40 +50,37 @@ function App({ authService, FileInput }) {
     });
   };
 
-  // Save data
-  const addOrUpdateJournal = (journal) => {
+  // Get journals from Firebase database
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = journalRepository.syncJournals(userId, (journals) => {
+      setJournals(journals);
+    });
+    return () => stopSync();
+  }, [userId]);
+
+  // Delete journal from database
+  const deleteJournal = (journal) => {
+    setJournals((journals) => {
+      const updated = { ...journals };
+      delete updated[journal.key];
+      return updated;
+    });
+
+    journalRepository.deleteJournal(userId, journal);
+  };
+
+  // Add or update journal
+  const createOrUpdateJournal = (journal) => {
     setJournals((journals) => {
       const updated = { ...journals };
       updated[journal.key] = journal;
       return updated;
     });
-  };
 
-  const readData = () => {
-    const user = auth.currentUser ? auth.currentUser.uid : userId;
-
-    const journalRef = ref(database, 'journal/' + user);
-    onValue(journalRef, (snapshot) => {
-      const data = snapshot.val();
-      setJournals(data);
-    });
-  };
-
-  const deleteJournal = (key) => {
-    remove(ref(database, `journal/${userId}/${key}`));
-  };
-
-  const wirteData = (journal) => {
-    const key = journal.key;
-    set(ref(database, `journal/${userId}/${key}`), {
-      key: key,
-      date: journal.date,
-      title: journal.title,
-      content: journal.content,
-      url: journal.url,
-      emotion: journal.emotion,
-      imageName: journal.imageName,
-    });
+    journalRepository.saveJournal(userId, journal);
   };
 
   return (
@@ -106,18 +107,19 @@ function App({ authService, FileInput }) {
               <div className="journalContainer">
                 <JournalList
                   journals={journals}
+                  setUserId={setUserId}
                   toggleEditor={toggleEditor}
                   toggleView={toggleView}
                   display={onEditor || onView ? 'half' : 'full'}
                   onOpenJournal={onOpenJournal}
-                  readData={readData}
+                  authService={authService}
                 />
                 <JournalEditor
-                  wirteData={wirteData}
+                  wirteData={createOrUpdateJournal}
                   FileInput={FileInput}
                   display={onEditor ? 'open' : 'close'}
                   setOnEditor={setOnEditor}
-                  uploadeData={addOrUpdateJournal}
+                  uploadeData={createOrUpdateJournal}
                 />
                 <JournalView
                   display={onView ? 'open' : 'close'}

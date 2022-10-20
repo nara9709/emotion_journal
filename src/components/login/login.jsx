@@ -30,7 +30,6 @@ const Login = ({
   //Go to main app page If user signed in
   const goToJournalList = (userUid) => {
     navigate('/journal-list', { state: { userId: userUid } });
-    setUserId(userUid);
   };
 
   // Call sign up function

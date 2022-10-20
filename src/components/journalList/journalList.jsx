@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Journal from '../journal/journal';
+import { useNavigate } from 'react-router-dom';
 import styles from './journalList.module.css';
 
 const JournalList = ({
@@ -9,11 +10,20 @@ const JournalList = ({
   display,
   toggleView,
   journals,
-  readData,
+  setUserId,
+  authService,
 }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    readData();
-  }, []);
+    authService.onAuthChange((user) => {
+      if (user) {
+        setUserId(user.uid);
+      } else {
+        navigate('/');
+      }
+    });
+  });
 
   const displayType =
     display === 'full' ? styles.listContainerFull : styles.listContainerHalf;
