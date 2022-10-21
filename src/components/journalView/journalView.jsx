@@ -50,9 +50,6 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
       {/* Left section start */}
       <div className={styles.leftSection}>
         <div className={styles.headerContainer}>
-          <span className={styles.closeIcon} onClick={closeView}>
-            <i className="fa-solid fa-x"></i>
-          </span>
           <span className={styles.date}>
             {journalShown ? journalShown.date : 'No date :('}
           </span>
@@ -90,6 +87,9 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
           </div>
         </div>
       ) : null}
+      <div className={styles.closeIcon} onClick={closeView}>
+        <i className="fa-solid fa-x"></i>
+      </div>
 
       {/* Right section end */}
     </section>

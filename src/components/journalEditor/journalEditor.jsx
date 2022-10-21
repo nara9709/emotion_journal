@@ -71,14 +71,20 @@ const JournalEditor = ({
   return (
     <section className={displayType}>
       <form action="submit">
-        <input ref={dateRef} type="date" name="date" />
+        <input
+          ref={dateRef}
+          type="date"
+          className={styles.dateInput}
+          name="date"
+        />
         <input
           type="text"
           ref={titleRef}
+          className={styles.titleInput}
           name="title"
           placeholder="Today is.."
         />
-        <div>
+        <div className={styles.emotionContainer}>
           <label className={styles.emotionLabel} for="cars">
             How do you feel today?
           </label>
@@ -105,9 +111,12 @@ const JournalEditor = ({
           ref={contentRef}
         ></textarea>
 
-        <FileInput onFileChange={onFileChange} />
-
-        <button onClick={saveJounal}>Save</button>
+        <div className={styles.btnContainer}>
+          <button onClick={saveJounal} className={styles.saveBtn}>
+            Save
+          </button>
+          <FileInput onFileChange={onFileChange} />
+        </div>
       </form>
       {modalOpen && <Modal setModalOpen={setModalOpen}></Modal>}
     </section>

@@ -32,7 +32,7 @@ const ImageFileInput = ({ imageUploader, onFileChange, name }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       <input
         ref={inputRef}
         className={styles.input}
@@ -49,7 +49,7 @@ const ImageFileInput = ({ imageUploader, onFileChange, name }) => {
         </button>
       )}
       {loading && <div className={styles.loading}></div>}
-    </div>
+    </>
   );
 };
 export default ImageFileInput;

@@ -32,12 +32,9 @@ section {
 }
 
 .closeIcon {
-  position: relative;
-  left: -80px;
-  height: 50px;
-  float: left;
+  display: inline;
+  float: right;
   font-size: 1.5em;
-  margin-top: 1em;
 }
 
 .closeIcon:hover {
