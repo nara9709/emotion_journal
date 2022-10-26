@@ -113,14 +113,10 @@ function App({ authService, FileInput, journalRepository }) {
                   display={onEditor || onView ? 'half' : 'full'}
                   onOpenJournal={onOpenJournal}
                   authService={authService}
-                />
-                <JournalEditor
-                  wirteData={createOrUpdateJournal}
                   FileInput={FileInput}
-                  display={onEditor ? 'open' : 'close'}
-                  setOnEditor={setOnEditor}
-                  uploadeData={createOrUpdateJournal}
+                  wirteData={createOrUpdateJournal}
                 />
+
                 <JournalView
                   display={onView ? 'open' : 'close'}
                   journalShown={journalShown}

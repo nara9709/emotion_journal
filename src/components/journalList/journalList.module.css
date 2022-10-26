@@ -17,6 +17,11 @@
   overflow-y: scroll;
 }
 
+.rightSection {
+  width: 50%;
+  height: 100%;
+}
+
 .cardContainer {
   display: flex;
   flex-wrap: wrap;

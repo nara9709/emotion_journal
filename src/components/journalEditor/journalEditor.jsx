@@ -45,16 +45,10 @@ const JournalEditor = ({
       showModal();
     } else {
       wirteData(journal);
-      uploadeData(journal);
       // Close editor window
       setOnEditor(false);
     }
   };
-
-  const displayType =
-    display === 'close'
-      ? styles.editorContainerClose
-      : styles.editorContainerOpen;
 
   const onFileChange = (file) => {
     const url = file.url;
@@ -69,7 +63,7 @@ const JournalEditor = ({
   };
 
   return (
-    <section className={displayType}>
+    <section className={styles.editorContainer}>
       <form action="submit">
         <input
           ref={dateRef}
@@ -110,7 +104,6 @@ const JournalEditor = ({
           rows="20"
           ref={contentRef}
         ></textarea>
-
         <div className={styles.btnContainer}>
           <button onClick={saveJounal} className={styles.saveBtn}>
             Save
