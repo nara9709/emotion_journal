@@ -1,7 +1,7 @@
 @value journal-main-height from '../../common/size.css';
 @value journal-grey, journal-dark-green from '../../common/colors.css';
 
-.listContainerFull {
+.sectionLeft {
   width: 100%;
   height: journal-main-height;
   background-color: white;
@@ -10,15 +10,8 @@
   overflow-y: scroll;
 }
 
-.listContainerHalf {
-  background-color: white;
-  border-bottom-left-radius: 10px;
-  width: 50%;
-  overflow-y: scroll;
-}
-
-.rightSection {
-  width: 50%;
+.sectionRight {
+  width: 120%;
   height: 100%;
 }
 

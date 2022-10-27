@@ -46,7 +46,7 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
   makeEmotion();
 
   return (
-    <section className={displayType}>
+    <section className={styles.viewContainer}>
       {/* Left section start */}
       <div className={styles.leftSection}>
         <div className={styles.headerContainer}>
@@ -68,7 +68,7 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
             <i class="fa-solid fa-trash"></i>
           </span>
           <span className={styles.editIcon}>
-            <i class="fa-solid fa-pen-to-square"></i>
+            <i className="fa-solid fa-pen-to-square"></i>
           </span>
         </div>
       </div>

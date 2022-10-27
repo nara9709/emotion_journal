@@ -4,13 +4,7 @@ import { useRef } from 'react';
 import Modal from '../modal/modal';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({
-  display,
-  setOnEditor,
-  uploadeData,
-  FileInput,
-  wirteData,
-}) => {
+const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const titleRef = useRef();

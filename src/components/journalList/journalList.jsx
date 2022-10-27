@@ -4,22 +4,22 @@ import Journal from '../journal/journal';
 import { useNavigate } from 'react-router-dom';
 import styles from './journalList.module.css';
 import JournalEditor from '../journalEditor/journalEditor';
+import JournalView from '../journalView/journalView';
 
 const JournalList = ({
-  onOpenJournal,
-  toggleEditor,
-  display,
-  toggleView,
   journals,
   setUserId,
   authService,
   wirteData,
   FileInput,
   uploadeData,
+  deleteJournal,
 }) => {
   const navigate = useNavigate();
 
-  const [editor, setEditor] = useState(false);
+  const [onEditor, setOnEditor] = useState(false);
+  const [onView, setOnView] = useState(false);
+  const [journalShown, setJournalShown] = useState(null);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -31,29 +31,25 @@ const JournalList = ({
     });
   });
 
-  const displayType =
-    display === 'full' ? styles.listContainerFull : styles.listContainerHalf;
-
-  const openEditor = () => {
-    toggleEditor();
-    if (editor === true) {
-      setEditor(false);
-    } else {
-      setEditor(true);
-    }
+  const toggleEditor = () => {
+    onEditor ? setOnEditor(false) : setOnEditor(true);
   };
 
-  const openView = () => {
-    toggleView();
+  const toggleView = () => {
+    onView ? setOnView(false) : setOnView(true);
   };
 
-  const onView = (key) => {
-    onOpenJournal(key);
+  // Search journal
+  const searchJournal = (key) => {
+    setJournalShown(() => {
+      const journal = journals[key];
+      return journal;
+    });
   };
 
   return (
     <>
-      <section className={displayType}>
+      <section className={styles.sectionLeft}>
         <ul className={styles.cardContainer}>
           {journals &&
             Object.keys(journals).map((key) => (
@@ -61,24 +57,34 @@ const JournalList = ({
                 <Journal
                   journal={journals[key]}
                   key={key}
-                  onView={onView}
-                  openView={openView}
+                  searchJournal={searchJournal}
+                  openView={toggleView}
                 />
               </li>
             ))}
         </ul>
-        <button className={styles.editBtn} onClick={openEditor}>
+        <button className={styles.editBtn} onClick={toggleEditor}>
           <i className="fa-solid fa-pen-to-square"></i>
         </button>
       </section>
 
-      {editor && (
-        <section className={styles.rightSection}>
+      {onEditor && (
+        <section className={styles.sectionRight}>
           <JournalEditor
             wirteData={wirteData}
             FileInput={FileInput}
-            setOnEditor={setEditor}
+            setOnEditor={setOnEditor}
             uploadeData={uploadeData}
+          />
+        </section>
+      )}
+
+      {onView && (
+        <section className={styles.sectionRight}>
+          <JournalView
+            journalShown={journalShown}
+            deleteJournal={deleteJournal}
+            toggleView={toggleView}
           />
         </section>
       )}

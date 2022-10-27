@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import styles from './journal.module.css';
 
-const Journal = ({ journal, onView, openView }) => {
+const Journal = ({ journal, searchJournal, openView }) => {
   let month = null;
   const year = journal.date.slice(0, 4);
   const monthOriginal = journal.date.slice(5, 7);
@@ -86,7 +86,7 @@ const Journal = ({ journal, onView, openView }) => {
   makeEmotion();
 
   const journalOpen = () => {
-    onView(journal.key);
+    searchJournal(journal.key);
     openView();
   };
 
