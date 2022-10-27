@@ -15,14 +15,6 @@ body {
   margin: auto;
 }
 
-#root {
-  width: 1300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5em;
-}
-
 .App {
   text-align: center;
 }

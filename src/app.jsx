@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './app.css';
+import styles from './app.module.css';
 import Login from './components/login/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header';
@@ -62,7 +62,7 @@ function App({ authService, FileInput, journalRepository }) {
             <>
               {' '}
               <Header authService={authService} />
-              <div className="journalContainer">
+              <div className={styles.journalContainer}>
                 <JournalList
                   journals={journals}
                   setUserId={setUserId}
