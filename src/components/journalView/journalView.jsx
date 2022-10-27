@@ -2,9 +2,14 @@ import React from 'react';
 import { useEffect } from 'react';
 import styles from './journalView.module.css';
 
-const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
-  const displayType = display === 'open' ? styles.viewOpen : styles.viewClose;
-
+const JournalView = ({
+  journalShown,
+  toggleView,
+  deleteJournal,
+  toggleEditor,
+  setToBeEdited,
+  setOnEditor,
+}) => {
   const closeView = () => {
     toggleView();
   };
@@ -14,7 +19,19 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
     deleteJournal(journalShown);
   };
 
+  const editJournal = () => {
+    // Close view page
+    toggleView();
+
+    // Open edit page
+    toggleEditor();
+
+    // update the journal object to be edited
+    setToBeEdited(journalShown);
+  };
+
   let emotion = null;
+
   const makeEmotion = () => {
     switch (journalShown ? journalShown.emotion : emotion) {
       case 'happy':
@@ -67,7 +84,7 @@ const JournalView = ({ display, journalShown, toggleView, deleteJournal }) => {
           <span className={styles.deleteIcon} onClick={onDeleteJounal}>
             <i class="fa-solid fa-trash"></i>
           </span>
-          <span className={styles.editIcon}>
+          <span className={styles.editIcon} onClick={editJournal}>
             <i className="fa-solid fa-pen-to-square"></i>
           </span>
         </div>

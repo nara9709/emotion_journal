@@ -4,7 +4,13 @@ import { useRef } from 'react';
 import Modal from '../modal/modal';
 import styles from './journalEditor.module.css';
 
-const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
+const JournalEditor = ({
+  toggleEditor,
+  FileInput,
+  wirteData,
+  toBeEdited,
+  setToBeEdited,
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const titleRef = useRef();
@@ -23,25 +29,27 @@ const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
     const date = dateRef.current.value;
     const emotion = emoRef.current.value;
 
-    console.log(emotion);
-
     let journal = {
-      key: Date.now(),
+      key: toBeEdited ? toBeEdited.key : Date.now(),
       title: title,
       content: content,
       date: date,
-      url: url,
+      url: toBeEdited && toBeEdited.url ? toBeEdited.url : url,
       imageName: imageName,
       emotion: emotion,
     };
 
+    // If a user does not type the title or content, show an alert modal window
     if (journal.title === '' || journal.content === '') {
       showModal();
     } else {
       wirteData(journal);
       // Close editor window
-      setOnEditor(false);
+      toggleEditor();
     }
+
+    // If use toBeEdited object, clearn toBeEdited state
+    setToBeEdited(null);
   };
 
   const onFileChange = (file) => {
@@ -64,6 +72,7 @@ const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
           type="date"
           className={styles.dateInput}
           name="date"
+          defaultValue={toBeEdited && toBeEdited.date}
         />
         <input
           type="text"
@@ -71,9 +80,10 @@ const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
           className={styles.titleInput}
           name="title"
           placeholder="Today is.."
+          defaultValue={toBeEdited && toBeEdited.title}
         />
         <div className={styles.emotionContainer}>
-          <label className={styles.emotionLabel} for="cars">
+          <label className={styles.emotionLabel} for="emotions">
             How do you feel today?
           </label>
 
@@ -82,6 +92,7 @@ const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
             name="emotions"
             id="emotion"
             className={styles.eomtions}
+            defaultValue={toBeEdited && toBeEdited.emotion}
           >
             <option value="happy">😊</option>
             <option value="sad">😢</option>
@@ -97,6 +108,7 @@ const JournalEditor = ({ setOnEditor, FileInput, wirteData }) => {
           cols="30"
           rows="20"
           ref={contentRef}
+          defaultValue={toBeEdited && toBeEdited.content}
         ></textarea>
         <div className={styles.btnContainer}>
           <button onClick={saveJounal} className={styles.saveBtn}>

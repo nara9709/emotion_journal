@@ -20,6 +20,7 @@ const JournalList = ({
   const [onEditor, setOnEditor] = useState(false);
   const [onView, setOnView] = useState(false);
   const [journalShown, setJournalShown] = useState(null);
+  const [toBeEdited, setToBeEdited] = useState(null);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -73,8 +74,10 @@ const JournalList = ({
           <JournalEditor
             wirteData={wirteData}
             FileInput={FileInput}
-            setOnEditor={setOnEditor}
+            toggleEditor={toggleEditor}
             uploadeData={uploadeData}
+            toBeEdited={toBeEdited}
+            setToBeEdited={setToBeEdited}
           />
         </section>
       )}
@@ -85,6 +88,9 @@ const JournalList = ({
             journalShown={journalShown}
             deleteJournal={deleteJournal}
             toggleView={toggleView}
+            toggleEditor={toggleEditor}
+            setToBeEdited={setToBeEdited}
+            setOnEditor={setOnEditor}
           />
         </section>
       )}
