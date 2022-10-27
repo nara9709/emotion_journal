@@ -8,7 +8,6 @@ const JournalView = ({
   deleteJournal,
   toggleEditor,
   setToBeEdited,
-  setOnEditor,
 }) => {
   const closeView = () => {
     toggleView();

@@ -53,13 +53,7 @@ function App({ authService, FileInput, journalRepository }) {
       <Routes>
         <Route
           path="/"
-          element={
-            <Login
-              authService={authService}
-              setOnView={setOnView}
-              setUserId={setUserId}
-            />
-          }
+          element={<Login authService={authService} setUserId={setUserId} />}
         ></Route>
         <Route
           path="/journal-list"

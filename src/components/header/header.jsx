@@ -6,7 +6,6 @@ const Header = ({ authService, toggleEditor }) => {
   const navigate = useNavigate();
 
   const onLogout = () => {
-    toggleEditor();
     authService.logOut().then(navigate('/'));
   };
 

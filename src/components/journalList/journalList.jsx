@@ -90,7 +90,6 @@ const JournalList = ({
             toggleView={toggleView}
             toggleEditor={toggleEditor}
             setToBeEdited={setToBeEdited}
-            setOnEditor={setOnEditor}
           />
         </section>
       )}
