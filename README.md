@@ -1,8 +1,7 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=91b1a2&height=300&section=header&text=EMOTION%20JOURNAL&fontSize=70&fontColor=fff)
 
 
-<div>
-  # 🛠Skills
+#🛠Skills
 <br>
 <img alt="HTML5" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=fff"/>
 <img alt="CSS" src ="https://img.shields.io/badge/CSS-F43059.svg?&style=for-the-badge&logo=CSSWizardry&logoColor=fff"/>
@@ -18,4 +17,3 @@
 <img alt="adobeXD" src="https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6" />
 <br>
 
-  </div>
