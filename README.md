@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=6A5DDF&height=300&section=header&text=SHOPPING%20LIST&fontSize=70&fontColor=fff)
+![header](https://capsule-render.vercel.app/api?type=waving&color=91b1a2&height=300&section=header&text=EMOTION%20JOURNAL&fontSize=70&fontColor=fff)
 
 
 # 🛠Skills
