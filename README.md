@@ -31,11 +31,22 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 # Core function 
 <br>
 ## Write a journal with emoji and whatever image you want and view them
-<img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
-You can write your journal with emotion emoji and you can also uploade image.
+<img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201738/wrting_view_fqfnyx.gif" />
+You can write your journal with emotional emojis and upload images.
 
 
 ## Edit a journal and delete
 <br>
 <img alt="editing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
-You can edit your journal and you can also delete.
+You can edit your journal and you can also delete it.
+
+## Save your data in database
+<br>
+<img alt="save data" erc="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
+We save your journal data on the Firebase database and you can read your journal whenever with your account.
+
+
+# <a link="https://emotionjournal.netlify.app/"> Try this application! </a>
+## You can use your Google or GitHub account, and we have a test account for you.
+### ID: test@test.com
+### PW: !!test
