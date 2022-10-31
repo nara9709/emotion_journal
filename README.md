@@ -62,8 +62,11 @@ We save your journal data on the Firebase database and you can read your journal
 <br>
 
 # 🎨Application design plan and prototype plan with AdobeXD
+<br>
 <strong> Design plan </strong>
 <img alt="design plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.24_AM_osxanq.png" />
+<br>
+<br>
 <br>
 <strong> Prototype plan </strong>
 <img alt="prototype plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.48_AM_vt9kdx.png" />
