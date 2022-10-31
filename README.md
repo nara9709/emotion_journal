@@ -2,7 +2,7 @@
 
 
 
-#🛠Skills
+# 🛠Skills
 <br>
 <img alt="HTML5" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=fff"/>
 <img alt="CSS" src ="https://img.shields.io/badge/CSS-F43059.svg?&style=for-the-badge&logo=CSSWizardry&logoColor=fff"/>
@@ -30,6 +30,8 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 
 # Core function 
 <br>
+<br>
+
 ## Write a journal with emoji and whatever image you want and view them
 <img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201738/wrting_view_fqfnyx.gif" />
 You can write your journal with emotional emojis and upload images.
@@ -46,12 +48,12 @@ You can edit your journal and you can also delete it.
 We save your journal data on the Firebase database and you can read your journal whenever with your account.
 
 
-# <a link="https://emotionjournal.netlify.app/"> Try this application! </a>
-## You can use your Google or GitHub account, and we have a test account for you.
-### ID: test@test.com
-### PW: !!test
+# <a href="https://emotionjournal.netlify.app/"> Try this application! </a>
+You can use your Google or GitHub account, and we have a test account for you.
+ID: test@test.com
+PW: !!test
 
 <br>
 <br>
 
-# Lead my articles on <a link="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc"> Midium </a> about this project
+# Lead my articles on <a href="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc"> Midium </a> about this project
