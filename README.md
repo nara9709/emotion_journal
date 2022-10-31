@@ -49,9 +49,9 @@ We save your journal data on the Firebase database and you can read your journal
 
 
 # <a href="https://emotionjournal.netlify.app/"> Try this application! </a>
-You can use your Google or GitHub account, and we have a test account for you.
-ID: test@test.com
-PW: !!test
+You can use your Google or GitHub account, and we have a test account for you. <br>
+ID: test@test.com <br>
+PW: !!test <br>
 
 <br>
 <br>
