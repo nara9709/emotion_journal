@@ -26,7 +26,8 @@ Do you know that focusing why you were happy can be the good way to make your da
 Write a journal with this application and record your feeling today! <br>
 You can easily check why you were sad yester day and why you were happy a month ago. <br>
 If you Know why you were sad yesterday, you don't sad today with the same reason!
-
+<br>
+<br>
 
 # 📂Core function 
 <br>
@@ -36,16 +37,27 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 <img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201738/wrting_view_fqfnyx.gif" />
 You can write your journal with emotional emojis and upload images.
 
+<br>
+<br>
 
 ## Edit a journal and delete
 <br>
 <img alt="editing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
 You can edit your journal and you can also delete it.
+<br>
+<br>
 
 ## Save your data in database
 <br>
 <img alt="save data" src="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
 We save your journal data on the Firebase database and you can read your journal whenever with your account.
+<br>
+<br>
+
+# Database plan
+<br>
+<img alt="database plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667204587/database_knbphb.jpg" />
+
 <br>
 <br>
 
