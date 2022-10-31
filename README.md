@@ -42,7 +42,7 @@ You can edit your journal and you can also delete it.
 
 ## Save your data in database
 <br>
-<img alt="save data" erc="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
+<img alt="save data" src="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
 We save your journal data on the Firebase database and you can read your journal whenever with your account.
 
 
@@ -50,3 +50,8 @@ We save your journal data on the Firebase database and you can read your journal
 ## You can use your Google or GitHub account, and we have a test account for you.
 ### ID: test@test.com
 ### PW: !!test
+
+<br>
+<br>
+
+# Lead my articles on <a link="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc"> Midium </a> about this project
