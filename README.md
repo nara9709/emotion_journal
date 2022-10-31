@@ -28,7 +28,7 @@ You can easily check why you were sad yester day and why you were happy a month 
 If you Know why you were sad yesterday, you don't sad today with the same reason!
 
 
-# Core function 
+# 📂Core function 
 <br>
 <br>
 
@@ -46,7 +46,17 @@ You can edit your journal and you can also delete it.
 <br>
 <img alt="save data" src="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
 We save your journal data on the Firebase database and you can read your journal whenever with your account.
+<br>
+<br>
 
+# 🎨Application design plan and prototype plan with AdobeXD
+<strong> Design plan </strong>
+<img alt="design plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.24_AM_osxanq.png" />
+<br>
+<strong> Prototype plan </strong>
+<img alt="prototype plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.48_AM_vt9kdx.png" />
+<br>
+<br>
 
 # <a href="https://emotionjournal.netlify.app/"> Try this application! </a>
 You can use your Google or GitHub account, and we have a test account for you. <br>
@@ -56,4 +66,5 @@ PW: !!test <br>
 <br>
 <br>
 
-# Lead my articles on <a href="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc"> Midium </a> about this project
+# Lead my articles on <a href="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc" target="_blank"> Midium </a> about this project
+
