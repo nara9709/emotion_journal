@@ -10,6 +10,9 @@ function App({ authService, FileInput, journalRepository }) {
   const [onView, setOnView] = useState(false);
   const [userId, setUserId] = useState(null);
   const [journals, setJournals] = useState(null);
+  const [onFilter, setOnFilter] = useState(false);
+
+  console.log(onFilter);
 
   const toggleView = () => {
     onView ? setOnView(false) : setOnView(true);
@@ -58,9 +61,7 @@ function App({ authService, FileInput, journalRepository }) {
         <Route
           path="/journal-list"
           element={
-            // If User clicks Editor button, show editor page
             <>
-              {' '}
               <Header authService={authService} />
               <div className={styles.journalContainer}>
                 <JournalList
@@ -71,6 +72,8 @@ function App({ authService, FileInput, journalRepository }) {
                   FileInput={FileInput}
                   wirteData={createOrUpdateJournal}
                   deleteJournal={deleteJournal}
+                  onFilter={onFilter}
+                  setOnFilter={setOnFilter}
                 />
               </div>
             </>

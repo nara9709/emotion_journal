@@ -15,6 +15,8 @@ const JournalList = ({
   FileInput,
   uploadeData,
   deleteJournal,
+  onFilter,
+  setOnFilter,
 }) => {
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const JournalList = ({
   const [onView, setOnView] = useState(false);
   const [journalShown, setJournalShown] = useState(null);
   const [toBeEdited, setToBeEdited] = useState(null);
-  const [filteredJournals, setFilteredJournals] = useState(null);
+  const [filteredJournals, setFilteredJournals] = useState([]);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -42,7 +44,7 @@ const JournalList = ({
     onView ? setOnView(false) : setOnView(true);
   };
 
-  // Search journal
+  // Filtering journal shown
   const searchJournal = (key) => {
     setJournalShown(() => {
       const journal = journals[key];
@@ -52,19 +54,18 @@ const JournalList = ({
 
   // Filtering journals by emotion
   const filteringJournalByEmotion = (emotion) => {
-    // console.log(emotion);
-    // let filteredObjKey = Object.keys(journals).filter(
-    //   (journal) => journals[journal].emotion === emotion
-    // );
-    // console.log(filteredObjKey);
-    // const filteredObj = {};
-    // if (filteredObjKey.length > 0) {
-    //   filteredObjKey.map((key) => {
-    //     filteredObj.key = '';
-    //   });
-    // }
-    // console.log(filteredObj);
+    if (emotion !== 'all') {
+      const filteredArr = Object.values(journals).filter((journal) =>
+        journal.emotion.includes(emotion)
+      );
+      setOnFilter(true);
+      setFilteredJournals(filteredArr);
+    } else {
+      setOnFilter(false);
+    }
   };
+
+  console.log(onFilter);
 
   return (
     <>

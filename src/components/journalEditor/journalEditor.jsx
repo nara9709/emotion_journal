@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+import { useRef } from 'react';
 import Modal from '../modal/modal';
 import styles from './journalEditor.module.css';
 
