@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './journalList.module.css';
 import JournalEditor from '../journalEditor/journalEditor';
 import JournalView from '../journalView/journalView';
+import FilterEmotion from '../filterEmotion/filterEmotion';
 
 const JournalList = ({
   journals,
@@ -21,6 +22,7 @@ const JournalList = ({
   const [onView, setOnView] = useState(false);
   const [journalShown, setJournalShown] = useState(null);
   const [toBeEdited, setToBeEdited] = useState(null);
+  const [filteredJournals, setFilteredJournals] = useState(null);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -48,9 +50,28 @@ const JournalList = ({
     });
   };
 
+  // Filtering journals by emotion
+  const filteringJournalByEmotion = (emotion) => {
+    // console.log(emotion);
+    // let filteredObjKey = Object.keys(journals).filter(
+    //   (journal) => journals[journal].emotion === emotion
+    // );
+    // console.log(filteredObjKey);
+    // const filteredObj = {};
+    // if (filteredObjKey.length > 0) {
+    //   filteredObjKey.map((key) => {
+    //     filteredObj.key = '';
+    //   });
+    // }
+    // console.log(filteredObj);
+  };
+
   return (
     <>
       <section className={styles.sectionLeft}>
+        <FilterEmotion
+          filteringJournalByEmotion={filteringJournalByEmotion}
+        ></FilterEmotion>
         <ul className={styles.cardContainer}>
           {journals &&
             Object.keys(journals).map((key) => (
