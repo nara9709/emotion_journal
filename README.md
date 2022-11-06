@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+![header](https://capsule-render.vercel.app/api?type=waving&color=91b1a2&height=300&section=header&text=EMOTION%20JOURNAL&fontSize=70&fontColor=fff)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# 🛠Skills
+<br>
+<img alt="HTML5" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=fff"/>
+<img alt="CSS" src ="https://img.shields.io/badge/CSS-F43059.svg?&style=for-the-badge&logo=CSSWizardry&logoColor=fff"/>
+<img alt="JavaScript" src ="https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=fff"/>
+<img alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img alt="firebase" src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" />
+<br>
+  
 
-### `yarn start`
+# 🛠Tools
+<br>
+<img alt="VisualStudioCode" src ="https://img.shields.io/badge/VisualStudioCode-007ACC.svg?&style=for-the-badge&logo=Visual Studio Code&logoColor=fff"/>
+<img alt="adobeXD" src="https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6" />
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Project Description 
+<br>
+Let's focus on your feelings a little more today. <br>
+Do you know that focusing why you were sad before can be the good way to cure your depression? <br>
+Do you know that focusing why you were happy can be the good way to make your day happy everyday? <br>
+Write a journal with this application and record your feeling today! <br>
+You can easily check why you were sad yester day and why you were happy a month ago. <br>
+If you Know why you were sad yesterday, you don't sad today with the same reason!
+<br>
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 📂Core function 
+<br>
+<br>
 
-### `yarn test`
+## Write a journal with emoji and whatever image you want and view them
+<img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201738/wrting_view_fqfnyx.gif" />
+You can write your journal with emotional emojis and upload images.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
+<br>
 
-### `yarn build`
+## Edit a journal and delete
+<br>
+<img alt="editing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
+You can edit your journal and you can also delete it.
+<br>
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Save your data in database
+<br>
+<img alt="save data" src="https://res.cloudinary.com/nara9709/image/upload/v1667202383/savedata_il6mi6.gif" />
+We save your journal data on the Firebase database and you can read your journal whenever with your account.
+<br>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Database plan
+<br>
+<img alt="database plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667204587/database_knbphb.jpg" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
+<br>
 
-### `yarn eject`
+# 🎨Application design plan and prototype plan with AdobeXD
+<br>
+<strong> Design plan </strong>
+<img alt="design plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.24_AM_osxanq.png" />
+<br>
+<br>
+<br>
+<strong> Prototype plan </strong>
+<img alt="prototype plan" src="https://res.cloudinary.com/nara9709/image/upload/v1667203567/Screen_Shot_2022-10-31_at_4.02.48_AM_vt9kdx.png" />
+<br>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# <a href="https://emotionjournal.netlify.app/"> Try this application! </a>
+You can use your Google or GitHub account, and we have a test account for you. <br>
+ID: test@test.com <br>
+PW: !!test <br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Lead my articles on <a href="https://medium.com/@worldkr19/list/emotion-journal-project-reactjs-e7dc079f6ecc" target="_blank"> Midium </a> about this project
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
