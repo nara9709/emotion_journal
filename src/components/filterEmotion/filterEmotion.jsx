@@ -9,9 +9,14 @@ const FilterEmotion = ({ filteringJournals }) => {
     filteringJournals(emoRef.current.value);
   };
   return (
-    <div>
-      <p>Filter journals by</p>
-      <select name="emotions" id="emotion" ref={emoRef} onChange={filtering}>
+    <div className={styles.container}>
+      <span className={styles.title}>Filter journals by</span>
+      <select
+        className={styles.emotion}
+        id="emotion"
+        ref={emoRef}
+        onChange={filtering}
+      >
         <option value="all" defaultValue>
           All
         </option>
@@ -23,7 +28,6 @@ const FilterEmotion = ({ filteringJournals }) => {
         <option value="upset">😡</option>
         <option value="weary">😩</option>
       </select>
-      <button type="button">Search</button>
     </div>
   );
 };

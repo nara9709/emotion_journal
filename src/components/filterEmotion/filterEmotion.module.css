@@ -1,0 +1,13 @@
+.container {
+  margin-top: 1em;
+}
+
+.title {
+  letter-spacing: 0.3em;
+}
+
+.emotion {
+  border-radius: 0;
+  margin-left: 0.7em;
+  padding: 0.4em 0.4em;
+}

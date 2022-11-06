@@ -15,9 +15,6 @@ const JournalList = ({
   FileInput,
   uploadeData,
   deleteJournal,
-  onFilter,
-  setOnFilter,
-  setJournals,
   filteringJournalByEmotion,
 }) => {
   const navigate = useNavigate();

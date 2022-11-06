@@ -86,9 +86,6 @@ function App({ authService, FileInput, journalRepository }) {
                   FileInput={FileInput}
                   wirteData={createOrUpdateJournal}
                   deleteJournal={deleteJournal}
-                  onFilter={onFiltered}
-                  setOnFilter={SetOnfiltered}
-                  setJournals={setJournals}
                   filteringJournalByEmotion={filteringJournalByEmotion}
                 />
               </div>
