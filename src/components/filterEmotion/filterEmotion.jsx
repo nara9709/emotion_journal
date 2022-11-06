@@ -3,20 +3,15 @@ import { useRef } from 'react';
 
 import styles from './filterEmotion.module.css';
 
-const FilterEmotion = ({ filteringJournalByEmotion }) => {
+const FilterEmotion = ({ filteringJournals }) => {
   const emoRef = useRef();
-  const filteringJournal = () => {
-    filteringJournalByEmotion(emoRef.current.value);
+  const filtering = () => {
+    filteringJournals(emoRef.current.value);
   };
   return (
     <div>
       <p>Filter journals by</p>
-      <select
-        name="emotions"
-        id="emotion"
-        ref={emoRef}
-        onChange={filteringJournal}
-      >
+      <select name="emotions" id="emotion" ref={emoRef} onChange={filtering}>
         <option value="all" defaultValue>
           All
         </option>

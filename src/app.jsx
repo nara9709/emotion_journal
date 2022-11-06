@@ -10,9 +10,8 @@ function App({ authService, FileInput, journalRepository }) {
   const [onView, setOnView] = useState(false);
   const [userId, setUserId] = useState(null);
   const [journals, setJournals] = useState(null);
-  const [onFilter, setOnFilter] = useState(false);
-
-  console.log(onFilter);
+  const [onFiltered, SetOnfiltered] = useState(false);
+  const [filteredArr, SetFilteredArr] = useState({});
 
   const toggleView = () => {
     onView ? setOnView(false) : setOnView(true);
@@ -27,7 +26,7 @@ function App({ authService, FileInput, journalRepository }) {
       setJournals(journals);
     });
     return () => stopSync();
-  }, [userId]);
+  }, [journalRepository, userId]);
 
   // Delete journal from database
   const deleteJournal = (journal) => {
@@ -51,6 +50,21 @@ function App({ authService, FileInput, journalRepository }) {
     journalRepository.saveJournal(userId, journal);
   };
 
+  // Filtering journals by emotion
+  const filteringJournalByEmotion = (emotion) => {
+    if (emotion !== 'all') {
+      SetFilteredArr(() => {
+        SetOnfiltered(true);
+        const filteredArr = Object.values(journals).filter((journal) =>
+          journal.emotion.includes(emotion)
+        );
+        return filteredArr;
+      });
+    } else {
+      SetOnfiltered(false);
+    }
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -65,15 +79,17 @@ function App({ authService, FileInput, journalRepository }) {
               <Header authService={authService} />
               <div className={styles.journalContainer}>
                 <JournalList
-                  journals={journals}
+                  journals={!onFiltered ? journals : filteredArr}
                   setUserId={setUserId}
                   toggleView={toggleView}
                   authService={authService}
                   FileInput={FileInput}
                   wirteData={createOrUpdateJournal}
                   deleteJournal={deleteJournal}
-                  onFilter={onFilter}
-                  setOnFilter={setOnFilter}
+                  onFilter={onFiltered}
+                  setOnFilter={SetOnfiltered}
+                  setJournals={setJournals}
+                  filteringJournalByEmotion={filteringJournalByEmotion}
                 />
               </div>
             </>

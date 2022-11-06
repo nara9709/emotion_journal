@@ -12,7 +12,7 @@ class JournalRepository {
       value && onUpdate(value);
     });
 
-    return () => journalRef.off();
+    // return () => journalRef.off();
   }
   saveJournal(userId, journal) {
     set(ref(database, `${userId}/journals/${journal.key}`), journal);

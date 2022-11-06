@@ -17,6 +17,8 @@ const JournalList = ({
   deleteJournal,
   onFilter,
   setOnFilter,
+  setJournals,
+  filteringJournalByEmotion,
 }) => {
   const navigate = useNavigate();
 
@@ -24,7 +26,6 @@ const JournalList = ({
   const [onView, setOnView] = useState(false);
   const [journalShown, setJournalShown] = useState(null);
   const [toBeEdited, setToBeEdited] = useState(null);
-  const [filteredJournals, setFilteredJournals] = useState([]);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -53,30 +54,18 @@ const JournalList = ({
   };
 
   // Filtering journals by emotion
-  const filteringJournalByEmotion = (emotion) => {
-    if (emotion !== 'all') {
-      const filteredArr = Object.values(journals).filter((journal) =>
-        journal.emotion.includes(emotion)
-      );
-      setOnFilter(true);
-      setFilteredJournals(filteredArr);
-    } else {
-      setOnFilter(false);
-    }
+  const filteringJournals = (emotion) => {
+    filteringJournalByEmotion(emotion);
   };
-
-  console.log(onFilter);
 
   return (
     <>
       <section className={styles.sectionLeft}>
-        <FilterEmotion
-          filteringJournalByEmotion={filteringJournalByEmotion}
-        ></FilterEmotion>
+        <FilterEmotion filteringJournals={filteringJournals}></FilterEmotion>
         <ul className={styles.cardContainer}>
           {journals &&
             Object.keys(journals).map((key) => (
-              <li className={styles.journalCard}>
+              <li className={styles.journalCard} key={key}>
                 <Journal
                   journal={journals[key]}
                   key={key}
