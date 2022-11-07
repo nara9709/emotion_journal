@@ -16,6 +16,7 @@ const JournalList = ({
   uploadeData,
   deleteJournal,
   filteringJournalByEmotion,
+  onFiltered,
 }) => {
   const navigate = useNavigate();
 
@@ -42,11 +43,16 @@ const JournalList = ({
     onView ? setOnView(false) : setOnView(true);
   };
 
-  // Filtering journal shown
+  // Filter a shown journal
   const searchJournal = (key) => {
     setJournalShown(() => {
-      const journal = journals[key];
-      return journal;
+      if (!onFiltered) {
+        const journal = journals[key];
+        return journal;
+      } else {
+        const journal = journals.find((item) => item.key === key);
+        return journal;
+      }
     });
   };
 

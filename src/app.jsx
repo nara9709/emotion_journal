@@ -46,7 +46,8 @@ function App({ authService, FileInput, journalRepository }) {
       updated[journal.key] = journal;
       return updated;
     });
-
+    // Rerender journals without filtering after updating a journal
+    SetOnfiltered(false);
     journalRepository.saveJournal(userId, journal);
   };
 
@@ -87,6 +88,7 @@ function App({ authService, FileInput, journalRepository }) {
                   wirteData={createOrUpdateJournal}
                   deleteJournal={deleteJournal}
                   filteringJournalByEmotion={filteringJournalByEmotion}
+                  onFiltered={onFiltered}
                 />
               </div>
             </>

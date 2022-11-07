@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import styles from './journal.module.css';
 
 const Journal = ({ journal, searchJournal, openView }) => {

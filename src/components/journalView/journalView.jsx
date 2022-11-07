@@ -80,7 +80,7 @@ const JournalView = ({
         </p>
         <div className={styles.iconContainer}>
           <span className={styles.deleteIcon} onClick={onDeleteJounal}>
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </span>
           <span className={styles.editIcon} onClick={editJournal}>
             <i className="fa-solid fa-pen-to-square"></i>
