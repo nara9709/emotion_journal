@@ -29,7 +29,7 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 <br>
 <br>
 
-# 📂Core function 
+# 📂Core Fetures
 <br>
 <br>
 
@@ -44,6 +44,13 @@ You can write your journal with emotional emojis and upload images.
 <br>
 <img alt="editing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
 You can edit your journal and you can also delete it.
+<br>
+<br>
+
+## Filter journals by a emotion emoji
+<br>
+<img alt="https://res.cloudinary.com/nara9709/image/upload/v1667795895/ezgif.com-gif-maker_1_mz2ewn.gif" />
+This feature allows you to view your journals categorized by a emotion emoji.
 <br>
 <br>
 
