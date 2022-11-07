@@ -33,7 +33,7 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 <br>
 <br>
 
-## Write a journal with emoji and whatever image you want and view them
+## Write a journal with emoji and upload it with a image.
 <img alt="writing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201738/wrting_view_fqfnyx.gif" />
 You can write your journal with emotional emojis and upload images.
 
