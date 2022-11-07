@@ -20,7 +20,7 @@ const FilterEmotion = ({ filteringJournals }) => {
         <option value="all" defaultValue>
           All
         </option>
-        <option value="happy">😊</option>
+        <option value="happy">😁</option>
         <option value="sad">😢</option>
         <option value="love">🥰</option>
         <option value="sullen">😞</option>

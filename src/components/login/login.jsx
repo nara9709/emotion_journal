@@ -2,9 +2,12 @@ import styles from './login.module.css';
 
 import { React, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../modal/modal';
 
 const Login = ({ authService, setUserId }) => {
+  const [modalOpen, setModalOpen] = useState(true);
+
   // Dispatch useRef to email and password to get values
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -107,6 +110,9 @@ const Login = ({ authService, setUserId }) => {
           </button>
         </form>
       </section>
+      {modalOpen && (
+        <Modal setModalOpen={setModalOpen} messageReq="login"></Modal>
+      )}
     </section>
   );
 };

@@ -2,8 +2,8 @@
 
 .modalWindow {
   position: absolute;
-  left: 750px;
-  top: 250px;
+  left: 680px;
+  top: 300px;
   text-align: center;
   width: 400px;
   height: 200px;
@@ -16,11 +16,11 @@
 
 @keyframes showUp {
   0% {
-    top: 300px;
+    top: 400px;
   }
 
   100% {
-    top: 250px;
+    top: 300px;
   }
 }
 
@@ -39,10 +39,8 @@
 
 .modalWindow p {
   text-align: center;
-  padding-top: 20px;
-  margin-bottom: 0;
   height: 45px;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .modalBtn {
@@ -65,4 +63,8 @@
 .modalBtn:hover {
   cursor: pointer;
   opacity: 70%;
+}
+
+.message {
+  white-space: pre-line;
 }

@@ -94,7 +94,7 @@ const JournalEditor = ({
             className={styles.eomtions}
             defaultValue={toBeEdited && toBeEdited.emotion}
           >
-            <option value="happy">😊</option>
+            <option value="happy">😁</option>
             <option value="sad">😢</option>
             <option value="love">🥰</option>
             <option value="sullen">😞</option>
@@ -117,7 +117,9 @@ const JournalEditor = ({
           <FileInput onFileChange={onFileChange} />
         </div>
       </form>
-      {modalOpen && <Modal setModalOpen={setModalOpen}></Modal>}
+      {modalOpen && (
+        <Modal setModalOpen={setModalOpen} messageReq="editor"></Modal>
+      )}
     </section>
   );
 };
