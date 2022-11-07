@@ -5,7 +5,7 @@
 # 🛠Skills
 <br>
 <img alt="HTML5" src ="https://img.shields.io/badge/HTML5-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=fff"/>
-<img alt="CSS" src ="https://img.shields.io/badge/CSS-F43059.svg?&style=for-the-badge&logo=CSSWizardry&logoColor=fff"/>
+<img alt="CSS" src ="https://img.shields.io/badge/PostCSS-F43059.svg?&style=for-the-badge&logo=CSSWizardry&logoColor=fff"/>
 <img alt="JavaScript" src ="https://img.shields.io/badge/JavaScript-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=fff"/>
 <img alt="react" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 <img alt="firebase" src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" />
@@ -29,7 +29,7 @@ If you Know why you were sad yesterday, you don't sad today with the same reason
 <br>
 <br>
 
-# 📂Core function 
+# 📂Core Fetures
 <br>
 <br>
 
@@ -44,6 +44,13 @@ You can write your journal with emotional emojis and upload images.
 <br>
 <img alt="editing" src="https://res.cloudinary.com/nara9709/image/upload/v1667201731/delete_edit_b2irbw.gif" />
 You can edit your journal and you can also delete it.
+<br>
+<br>
+
+## Filter journals by a emotion emoji
+<br>
+<img alt="filtering" src="https://res.cloudinary.com/nara9709/image/upload/v1667795895/ezgif.com-gif-maker_1_mz2ewn.gif" />
+This feature allows you to view your journals categorized by a emotion emoji.
 <br>
 <br>
 
@@ -73,7 +80,7 @@ We save your journal data on the Firebase database and you can read your journal
 <br>
 <br>
 
-# <a href="https://emotionjournal.netlify.app/"> Try this application! </a>
+# <a href="https://emotionjournal.netlify.app/" target="_blank"> Try this application! </a>
 You can use your Google or GitHub account, and we have a test account for you. <br>
 ID: test@test.com <br>
 PW: !!test <br>
